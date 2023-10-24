@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "31944077951",
+    "project_id": "tedikap-app",
+    "storage_bucket": "tedikap-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31944077951:android:69de4f6d609d1842e2c54a",
+        "android_client_info": {
+          "package_name": "com.example.tedikap_flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31944077951-1pkaej21l8c1rlsk53nfj33kg6b7nan9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tedikap_flutter_app",
+            "certificate_hash": "fc833fa778af9be9616b934c79324057b5aca6b3"
+          }
+        },
+        {
+          "client_id": "31944077951-mk7hdak4nahrufdtdijnfcqmmbmo7r4m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3X5yj2s3rdBze820AwKWUOl2P3zhPTqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31944077951-mk7hdak4nahrufdtdijnfcqmmbmo7r4m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "31944077951-r5andr9qmh6cqs4hr14fmj8ghovo597n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tedikapFlutterApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
