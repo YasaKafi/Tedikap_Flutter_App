@@ -27,7 +27,7 @@ class OnboardingItemWidget extends StatelessWidget {
                   horizontal: Dimensions.paddingSizeExtraSmall),
               child: Text(
                 "Tedikap",
-                style: titilliumBold,
+                style: onboardingButtonTextStyle,
               ),
             ),
             SvgPicture.asset(Images.splashLogo, height: Dimensions.iconSizeExtraSmall),
@@ -40,14 +40,14 @@ class OnboardingItemWidget extends StatelessWidget {
         SizedBox(height: Dimensions.paddingSizeThirtyFive),
         Text(
           item.title,
-          style: titilliumBold,
+          style: onboardingButtonTextStyle,
         ),
         Padding(
           padding: EdgeInsets.only(top: Dimensions.paddingSizeDefault),
           child: Text(
             item.subtitle,
             textAlign: TextAlign.center,
-            style: titleRegular.copyWith(fontWeight: FontWeight.w500),
+            style: onboardingButtonTextStyle,
           ),
         ),
       ],
