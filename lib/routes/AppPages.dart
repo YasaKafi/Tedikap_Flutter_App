@@ -20,6 +20,7 @@ import 'package:tedikap_flutter_app/pages/register_page/binding/register_binding
 import 'package:tedikap_flutter_app/pages/register_page/view/register_page.dart';
 import 'package:tedikap_flutter_app/pages/search_page/binding/search_binding.dart';
 import 'package:tedikap_flutter_app/pages/search_page/view/search_page.dart';
+import 'package:tedikap_flutter_app/pages/splash_page/view/splash_page.dart';
 import 'package:tedikap_flutter_app/pages/struck_page/view/struck_page.dart';
 import '../pages/home_page/view/home_page.dart';
 import '../pages/navigator_page/view/navbar.dart';
@@ -53,12 +54,6 @@ class AppPages {
         name: _Paths.LOGIN_PAGE,
         page: () => LoginPage(),
         binding: LoginBinding(),
-        transition: Transition.fadeIn,
-        transitionDuration: const Duration(milliseconds: 1500)),
-    GetPage(
-        name: _Paths.ONBOARDING_PAGE,
-        page: () => OnBoarding(),
-        binding: OnBoardingBinding(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 1500)),
     GetPage(
@@ -111,6 +106,17 @@ class AppPages {
     GetPage(
         name: _Paths.QRIS_PAGE,
         page: () => QrisPage(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 1500)),
+    GetPage(
+        name: _Paths.SPLASH_PAGE,
+        page: () => SplashPage(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 1500)),
+    GetPage(
+        name: _Paths.ONBOARDING_PAGE,
+        page: () => OnBoarding(),
+        binding: OnBoardingBinding(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 1500)),
   ];
