@@ -55,13 +55,13 @@ class AppPages {
         page: () => LoginPage(),
         binding: LoginBinding(),
         transition: Transition.fadeIn,
-        transitionDuration: const Duration(milliseconds: 500)),
+        transitionDuration: const Duration(milliseconds: 1500)),
     GetPage(
         name: _Paths.ONBOARDING_PAGE,
         page: () => OnBoarding(),
         binding: OnBoardingBinding(),
         transition: Transition.fadeIn,
-        transitionDuration: const Duration(milliseconds: 500)),
+        transitionDuration: const Duration(milliseconds: 1500)),
     GetPage(
         name: _Paths.SEARCH_PAGE,
         page: () => SearchPage(),
@@ -113,17 +113,17 @@ class AppPages {
         name: _Paths.QRIS_PAGE,
         page: () => QrisPage(),
         transition: Transition.fadeIn,
-        transitionDuration: const Duration(milliseconds: 500)),
+        transitionDuration: const Duration(milliseconds: 1500)),
     GetPage(
         name: _Paths.SPLASH_PAGE,
         page: () => SplashPage(),
         transition: Transition.fadeIn,
-        transitionDuration: const Duration(milliseconds: 500)),
+        transitionDuration: const Duration(milliseconds: 1500)),
     GetPage(
         name: _Paths.ONBOARDING_PAGE,
         page: () => OnBoarding(),
         binding: OnBoardingBinding(),
         transition: Transition.fadeIn,
-        transitionDuration: const Duration(milliseconds: 500)),
+        transitionDuration: const Duration(milliseconds: 1500)),
   ];
 }
