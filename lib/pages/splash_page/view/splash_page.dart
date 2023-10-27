@@ -3,8 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:tedikap_flutter_app/pages/onboarding_page/view/onboarding_page.dart';
+
 import 'dart:async';
 import '../../../utils/color_resources.dart';
 import '../../../utils/images.dart';
@@ -28,7 +27,7 @@ class _SplashScreenState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorResources.getImageBg(context),
+      backgroundColor: ColorResources.white,
       body: Center(
         child: SvgPicture.asset(
           Images.splashLogo, // Menggunakan konstanta dari kelas Images

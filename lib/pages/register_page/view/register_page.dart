@@ -1,24 +1,84 @@
 // ignore_for_file: camel_case_types, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:tedikap_flutter_app/utils/color_resources.dart';
+
+import '../../../utils/custom_themes.dart';
+import '../widgets/form_register.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  RegisterPage({Key? key}) : super(key: key);
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Register Page"),
-        actions: const [],
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [],
+      backgroundColor: primaryTextColorWhite,
+      body: Stack(
+        children: [
+          Positioned(
+            top: -screenHeight * 0.0416,
+            left: -screenWidth * 0.3276,
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 150, top: 180),
+                child: Text(
+                  'Create\nAccount',
+                  style: loginHeaderTextStyle,
+                ),
+              ),
+              width: screenWidth * 1.2491,
+              height: screenHeight * 0.4717,
+            ),
           ),
-        ),
+          Positioned(
+            top: -screenHeight * 0.0786,
+            right: -screenWidth * 0.4370,
+            child: Container(
+              width: screenWidth * 0.8703,
+              height: screenHeight * 0.3368,
+              decoration: const ShapeDecoration(
+                color: ColorResources.yellow,
+                shape: OvalBorder(),
+              ),
+            ),
+          ),
+          Positioned(
+            top: screenHeight * 0.3255,
+            child: FormRegister(formKey: _formKey,),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              color: ColorResources.yellow,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Already have an account? ',
+                    style: forgotTextStyle,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>  RegisterPage(),
+                          ));
+                    },
+                    child: Text(
+                      'SIGN UP',
+                      style: buttonTextGoogle,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
