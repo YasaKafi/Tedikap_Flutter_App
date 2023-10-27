@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Images {
   static const String splashLogo = 'assets/images/cbw_splash.svg';
