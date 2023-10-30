@@ -22,6 +22,7 @@ class ColorResources {
   static const Color chatIconColor = Color(0xffD4D4D4);
   static const Color lowGreen = Color(0xffEFF6FE);
   static const Color green = Color(0xff23CB60);
+  static const Color gold = Color(0xffE4A923);
 
   static const Map<int, Color> colorMap = {
     50: Color(0x101455AC),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tedikap_flutter_app/utils/custom_themes.dart';
 import '../../../utils/color_resources.dart';
 import '../controller/onboarding_controller.dart';
 
@@ -14,15 +15,15 @@ class DotIndicator extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
         controller.onboardingItems.length,
-            (index) => Obx(
-              () => Container(
+            (index) => Obx(() => Container(
             margin: EdgeInsets.all(4),
-            width: 8,
-            height: 8,
+            width: controller.currentPage.value == index ? 11 : 11, 
+            height: controller.currentPage.value == index ? 37 : 20, 
             decoration: BoxDecoration(
-              shape: BoxShape.circle,
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(4),
               color: controller.currentPage.value == index
-                  ? ColorResources.primaryColor
+                  ? ColorResources.gold
                   : ColorResources.grey,
             ),
           ),

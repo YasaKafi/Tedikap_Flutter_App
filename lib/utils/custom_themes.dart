@@ -5,6 +5,7 @@ import 'color_resources.dart';
 import 'dimensions.dart';
 
 
+
 TextStyle primaryTextStyle = GoogleFonts.sora(
     textStyle: TextStyle(
         color: ColorResources.primaryColor,
@@ -20,6 +21,8 @@ const Color lineColor = Color.fromRGBO(181, 181, 181, 1);
 const Color offButtonColor = Color.fromRGBO(203, 203, 203, 1);
 const Color warningColor = Color.fromRGBO(143, 42, 42, 1);
 const Color borderColor = Color.fromRGBO(138, 136, 136, 1);
+
+
 
 
 figmaFontsize(int fontSize) {
@@ -168,6 +171,14 @@ TextStyle textFieldInputB = GoogleFonts.raleway(
         color: primaryColor,
         fontWeight: FontWeight.w500,
         fontSize: figmaFontsize(18)
+    )
+);
+
+TextStyle onboardingBrandTextStyle = GoogleFonts.raleway(
+    textStyle: TextStyle(
+        color: primaryTextColor,
+        fontWeight: FontWeight.bold,
+        fontSize: figmaFontsize(12)
     )
 );
 
