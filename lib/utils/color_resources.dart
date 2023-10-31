@@ -4,14 +4,18 @@ class ColorResources {
   
 
   static const Color black = Color(0xff000000);
+  static const Color black30 = Colors.black12;
   static const Color primaryColor = Color(0xff3F3D56);
   static const Color white = Color(0xffFFFFFF);
   static const Color lightSkyBlue = Color(0xff8DBFF6);
   static const Color harlequin = Color(0xff3FCC01);
   static const Color cris = Color(0xffE2206B);
-  static const Color grey = Color(0xffF1F1F1);
+  static  Color grey = Colors.grey.shade400;
+  static  Color greyBold = Color(0xFFFF7F7F7F);
+  static  Color greySemi = Color(0xFFF1F1F2);
   static const Color red = Color(0xFFD32F2F);
   static const Color yellow = Color(0xffFEC446);
+  static const Color gold = Color(0xffE4A923);
   static const Color hintTextColor = Color(0xff9E9E9E);
   static const Color gainsBg = Color(0xffE6E6E6);
   static const Color textBg = Color(0xffF3F9FF);
@@ -22,7 +26,7 @@ class ColorResources {
   static const Color chatIconColor = Color(0xffD4D4D4);
   static const Color lowGreen = Color(0xffEFF6FE);
   static const Color green = Color(0xff23CB60);
-  static const Color gold = Color(0xffE4A923);
+
 
   static const Map<int, Color> colorMap = {
     50: Color(0x101455AC),

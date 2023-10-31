@@ -18,6 +18,7 @@ abstract class Routes {
   static const QRIS_PAGE = _Paths.QRIS_PAGE;
   static const DETAIL_PROFILE_PAGE = _Paths.DETAIL_PROFILE_PAGE;
   static const DETAIL_PRODUCT_PAGE = _Paths.DETAIL_PRODUCT_PAGE;
+  static const DETAIL_SNACK_PAGE = _Paths.DETAIL_SNACK_PAGE;
   static const BOTTOM_NAVBAR = _Paths.BOTTOM_NAVBAR;
 
 
@@ -40,6 +41,7 @@ abstract class _Paths {
   static const QRIS_PAGE = '/qris-page';
   static const DETAIL_PROFILE_PAGE = '/detail-profile-page';
   static const DETAIL_PRODUCT_PAGE = '/detail-product-page';
+  static const DETAIL_SNACK_PAGE = '/detail-snack-page';
   static const BOTTOM_NAVBAR = '/botton-navbar';
 
 }

@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tedikap_flutter_app/firebase/firebase_auth_services.dart';
 
 import '../../../routes/AppPages.dart';
@@ -59,7 +60,11 @@ class RegisterController extends GetxController {
           duration: Duration(seconds: 2),
         ),
       );
-      Get.toNamed(Routes.LOGIN_PAGE); // Navigasi ke halaman /home
+      
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setBool('isLoggedIn', true);
+
+      Get.toNamed(Routes.LOGIN_PAGE);
     } else {
       Get.showSnackbar(
         GetSnackBar(
