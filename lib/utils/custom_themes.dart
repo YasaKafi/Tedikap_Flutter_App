@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'color_resources.dart';
 import 'dimensions.dart';
 
+
+
 TextStyle primaryTextStyle = GoogleFonts.sora(
     textStyle: TextStyle(
         color: ColorResources.primaryColor,
@@ -183,7 +185,19 @@ TextStyle textFieldInputB = GoogleFonts.raleway(
     textStyle: TextStyle(
         color: primaryColor,
         fontWeight: FontWeight.w500,
-        fontSize: figmaFontsize(18)));
+        fontSize: figmaFontsize(18)
+    )
+);
+
+TextStyle onboardingBrandTextStyle = GoogleFonts.raleway(
+    textStyle: TextStyle(
+        color: primaryTextColor,
+        fontWeight: FontWeight.bold,
+        fontSize: figmaFontsize(12)
+    )
+);
+
+
 
 TextStyle detailButtonsText({required bool isDelete}) {
   return GoogleFonts.raleway(

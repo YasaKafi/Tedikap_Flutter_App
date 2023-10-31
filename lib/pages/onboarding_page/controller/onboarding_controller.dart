@@ -13,12 +13,12 @@ class OnBoardingController extends GetxController {
       image: Images.onboardlogo1,
     ),
     OnboardingItem(
-      title: 'Tea in the palm of your hand',
+      title: 'Order tea in the palm of your hand',
       subtitle: 'Order your favorite tea right from the app and enjoy fast delivery to your door.',
       image: Images.onboardlogo2,
     ),
     OnboardingItem(
-      title: 'Save your time in ordering with us.',
+      title: 'Save your time in ordering with us',
       subtitle: 'We value your precious time. In a few easy steps, you can order the tea of your choice hassle-free.',
       image: Images.onboardlogo3,
     ),

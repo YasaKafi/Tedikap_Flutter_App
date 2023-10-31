@@ -35,7 +35,6 @@ class OnBoarding extends GetView<OnBoardingController> {
                 },
               ),
             ),
-            DotIndicator(controller: controller),
           ],
         ),
       ),

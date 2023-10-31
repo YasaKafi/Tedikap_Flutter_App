@@ -27,6 +27,7 @@ class ColorResources {
   static const Color lowGreen = Color(0xffEFF6FE);
   static const Color green = Color(0xff23CB60);
 
+
   static const Map<int, Color> colorMap = {
     50: Color(0x101455AC),
     100: Color(0x201455AC),
