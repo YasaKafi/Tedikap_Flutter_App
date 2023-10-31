@@ -1,22 +1,27 @@
 import 'package:get/get.dart';
 import 'package:get/get.dart';
+import 'package:get/get.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tedikap_flutter_app/data/models/product_response_model.dart';
 import 'package:tedikap_flutter_app/pages/detail_product_page/controller/detail_controller.dart';
 import 'package:tedikap_flutter_app/pages/detail_product_page/widgets/app_bar.dart';
+import 'package:tedikap_flutter_app/pages/home_page/controller/home_controller.dart';
 import 'package:tedikap_flutter_app/routes/AppPages.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
 
-class DetailProduct extends StatelessWidget {
-  DetailProduct({Key? key}) : super(key: key);
+class DetailSnack extends StatelessWidget {
+  DetailSnack({Key? key}) : super(key: key);
 
   final DetailProductController detailProductController =
       Get.put(DetailProductController());
+
+  final HomeController homeController = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
-    final teaSeries = Get.arguments as Product;
+    final snackSeries = Get.arguments as Product;
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     double screenButtonBuy = MediaQuery.of(context).size.height * 0.06284;
@@ -57,7 +62,7 @@ class DetailProduct extends StatelessWidget {
                         ),
                       ],
                       image: DecorationImage(
-                        image: NetworkImage(teaSeries.imageUrl ?? ""),
+                        image: NetworkImage(snackSeries.imageUrl ?? ""),
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -72,7 +77,7 @@ class DetailProduct extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      teaSeries.name ?? "",
+                      snackSeries.name ?? "",
                       style: detailPageStyle(
                           color: primaryColor,
                           fontSize: 22,
@@ -82,7 +87,7 @@ class DetailProduct extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      teaSeries.category ?? "",
+                      snackSeries.category ?? "",
                       style: detailPageStyle(
                           color: primaryColor,
                           fontSize: 14,
@@ -103,7 +108,7 @@ class DetailProduct extends StatelessWidget {
                           width: 5,
                         ),
                         Text(
-                          teaSeries.rating.toString() ?? "0",
+                          snackSeries.rating.toString() ?? "0",
                           style: detailPageStyle(
                               color: primaryColor,
                               fontSize: 16,
@@ -142,7 +147,7 @@ class DetailProduct extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      teaSeries.description ?? "",
+                      snackSeries.description ?? "",
                       style: detailPageStyle(
                           color: primaryColor,
                           fontSize: 14,
@@ -177,7 +182,7 @@ class DetailProduct extends StatelessWidget {
                             ),
                             Obx(() {
                               final productPrice = detailProductController
-                                  .getProductPrice(teaSeries.id ?? 0)
+                                  .getProductPrice(snackSeries.id ?? 0)
                                   .toString(); // Ganti 123 dengan ID produk yang diinginkan
                               return Text(
                                 productPrice,
@@ -306,197 +311,209 @@ class DetailProduct extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    Container(
-                      width: screenWidth,
-                      height: screenHeight * 0.0561,
-                      decoration: ShapeDecoration(
-                        color: Color(0xFFF0F0F3),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 1,
-                            strokeAlign: BorderSide.strokeAlignOutside,
-                            color: Colors.white,
+                    Obx(() {
+                      return Visibility(
+                        visible: homeController.isSnacksSeriesClicked.value,
+                        child: Container(
+                          width: screenWidth,
+                          height: screenHeight * 0.0561,
+                          decoration: ShapeDecoration(
+                            color: Color(0xFFF0F0F3),
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                width: 1,
+                                strokeAlign: BorderSide.strokeAlignOutside,
+                                color: Colors.white,
+                              ),
+                              borderRadius: BorderRadius.circular(50),
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                      ),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              width: screenWidth * 0.38235,
-                              height: screenHeight * 0.04719,
-                              decoration: ShapeDecoration(
-                                color: ColorResources.gold,
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    color: ColorResources.greySemi,
-                                    width: 2,
-                                    strokeAlign: BorderSide.strokeAlignOutside,
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  width: screenWidth * 0.38235,
+                                  height: screenHeight * 0.04719,
+                                  decoration: ShapeDecoration(
+                                    color: ColorResources.gold,
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide(
+                                        color: ColorResources.greySemi,
+                                        width: 2,
+                                        strokeAlign:
+                                            BorderSide.strokeAlignOutside,
+                                      ),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    shadows: [
+                                      BoxShadow(
+                                        color: Color(0x33AEAEC0),
+                                        blurRadius: 10,
+                                        offset: Offset(5, 5),
+                                        spreadRadius: 0,
+                                      ),
+                                      BoxShadow(
+                                        color: Color(0x66FFFFFF),
+                                        blurRadius: 5,
+                                        offset: Offset(-5, -5),
+                                        spreadRadius: 0,
+                                      )
+                                    ],
                                   ),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                shadows: [
-                                  BoxShadow(
-                                    color: Color(0x33AEAEC0),
-                                    blurRadius: 10,
-                                    offset: Offset(5, 5),
-                                    spreadRadius: 0,
-                                  ),
-                                  BoxShadow(
-                                    color: Color(0x66FFFFFF),
-                                    blurRadius: 5,
-                                    offset: Offset(-5, -5),
-                                    spreadRadius: 0,
-                                  )
-                                ],
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.fireplace_rounded,
-                                    color: ColorResources.red,
-                                    size: 20,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "Hot",
-                                    style: detailPageStyle(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.fireplace_rounded,
                                         color: ColorResources.red,
-                                        weight: FontWeight.w600,
-                                        fontSize: 14),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Container(
-                              width: screenWidth * 0.38235,
-                              height: screenHeight * 0.04719,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.ac_unit,
-                                    color: ColorResources.greyBold,
-                                    size: 20,
+                                        size: 20,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(
+                                        "Hot",
+                                        style: detailPageStyle(
+                                            color: ColorResources.red,
+                                            weight: FontWeight.w600,
+                                            fontSize: 14),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(
-                                    width: 5,
+                                ),
+                                Container(
+                                  width: screenWidth * 0.38235,
+                                  height: screenHeight * 0.04719,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.ac_unit,
+                                        color: ColorResources.greyBold,
+                                        size: 20,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(
+                                        "Iced",
+                                        style: detailPageStyle(
+                                            color: ColorResources.grey,
+                                            weight: FontWeight.w600,
+                                            fontSize: 14),
+                                      )
+                                    ],
                                   ),
-                                  Text(
-                                    "Iced",
-                                    style: detailPageStyle(
-                                        color: ColorResources.grey,
-                                        weight: FontWeight.w600,
-                                        fontSize: 14),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ]),
-                    ),
+                                ),
+                              ]),
+                        ),
+                      );
+                    }),
                     SizedBox(
                       height: 20,
                     ),
-                    Container(
-                      width: screenWidth,
-                      height: screenHeight * 0.0561,
-                      decoration: ShapeDecoration(
-                        color: Color(0xFFF0F0F3),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 1,
-                            strokeAlign: BorderSide.strokeAlignOutside,
-                            color: Colors.white,
+                    Obx(() {
+                      return Visibility(
+                        visible: homeController.isSnacksSeriesClicked.value,
+                        child: Container(
+                          width: screenWidth,
+                          height: screenHeight * 0.0561,
+                          decoration: ShapeDecoration(
+                            color: Color(0xFFF0F0F3),
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                width: 1,
+                                strokeAlign: BorderSide.strokeAlignOutside,
+                                color: Colors.white,
+                              ),
+                              borderRadius: BorderRadius.circular(50),
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(50),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  width: screenWidth * 0.179,
+                                  height: screenHeight * 0.04719,
+                                  child: Center(
+                                    child: Text(
+                                      "Short",
+                                      style: detailPageStyle(
+                                          color: ColorResources.greyBold,
+                                          weight: FontWeight.w600,
+                                          fontSize: 14),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: screenWidth * 0.179,
+                                  height: screenHeight * 0.04719,
+                                  decoration: ShapeDecoration(
+                                    color: Color(0xFFF0F0F3),
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide(
+                                        color: ColorResources.greySemi,
+                                        width: 2,
+                                        strokeAlign:
+                                            BorderSide.strokeAlignOutside,
+                                      ),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    shadows: [
+                                      BoxShadow(
+                                        color: Color(0x33AEAEC0),
+                                        blurRadius: 10,
+                                        offset: Offset(5, 5),
+                                        spreadRadius: 0,
+                                      ),
+                                      BoxShadow(
+                                        color: Color(0x66FFFFFF),
+                                        blurRadius: 5,
+                                        offset: Offset(-5, -5),
+                                        spreadRadius: 0,
+                                      )
+                                    ],
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "Tall",
+                                      style: detailPageStyle(
+                                          color: Colors.blueAccent,
+                                          weight: FontWeight.w600,
+                                          fontSize: 14),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: screenWidth * 0.179,
+                                  height: screenHeight * 0.04719,
+                                  child: Center(
+                                    child: Text(
+                                      "Grande",
+                                      style: detailPageStyle(
+                                          color: ColorResources.greyBold,
+                                          weight: FontWeight.w600,
+                                          fontSize: 14),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: screenWidth * 0.179,
+                                  height: screenHeight * 0.04719,
+                                  child: Center(
+                                    child: Text(
+                                      "Venti",
+                                      style: detailPageStyle(
+                                          color: ColorResources.greyBold,
+                                          weight: FontWeight.w600,
+                                          fontSize: 14),
+                                    ),
+                                  ),
+                                ),
+                              ]),
                         ),
-                      ),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              width: screenWidth * 0.179,
-                              height: screenHeight * 0.04719,
-                              child: Center(
-                                child: Text(
-                                  "Short",
-                                  style: detailPageStyle(
-                                      color: ColorResources.greyBold,
-                                      weight: FontWeight.w600,
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: screenWidth * 0.179,
-                              height: screenHeight * 0.04719,
-                              decoration: ShapeDecoration(
-                                color: Color(0xFFF0F0F3),
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    color: ColorResources.greySemi,
-                                    width: 2,
-                                    strokeAlign: BorderSide.strokeAlignOutside,
-                                  ),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                shadows: [
-                                  BoxShadow(
-                                    color: Color(0x33AEAEC0),
-                                    blurRadius: 10,
-                                    offset: Offset(5, 5),
-                                    spreadRadius: 0,
-                                  ),
-                                  BoxShadow(
-                                    color: Color(0x66FFFFFF),
-                                    blurRadius: 5,
-                                    offset: Offset(-5, -5),
-                                    spreadRadius: 0,
-                                  )
-                                ],
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "Tall",
-                                  style: detailPageStyle(
-                                      color: Colors.blueAccent,
-                                      weight: FontWeight.w600,
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: screenWidth * 0.179,
-                              height: screenHeight * 0.04719,
-                              child: Center(
-                                child: Text(
-                                  "Grande",
-                                  style: detailPageStyle(
-                                      color: ColorResources.greyBold,
-                                      weight: FontWeight.w600,
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: screenWidth * 0.179,
-                              height: screenHeight * 0.04719,
-                              child: Center(
-                                child: Text(
-                                  "Venti",
-                                  style: detailPageStyle(
-                                      color: ColorResources.greyBold,
-                                      weight: FontWeight.w600,
-                                      fontSize: 14),
-                                ),
-                              ),
-                            ),
-                          ]),
-                    ),
+                      );
+                    }),
                     SizedBox(
                       height: 20,
                     ),
@@ -518,7 +535,7 @@ class DetailProduct extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             InkWell(
-                              onTap: () => Get.offNamed(Routes.CART_PAGE),
+                              onTap: () =>  Get.offNamed(Routes.CART_PAGE),
                               child: Container(
                                 width: screenWidth * 0.4,
                                 height: screenHeight,

@@ -3,6 +3,7 @@ import 'package:tedikap_flutter_app/pages/cart_page/binding/cart_binding.dart';
 import 'package:tedikap_flutter_app/pages/cart_page/view/cart_page.dart';
 import 'package:tedikap_flutter_app/pages/detail_product_page/binding/detail_binding.dart';
 import 'package:tedikap_flutter_app/pages/detail_product_page/view/detail_product_page.dart';
+import 'package:tedikap_flutter_app/pages/detail_product_page/view/detail_snacks_page.dart';
 import 'package:tedikap_flutter_app/pages/detail_profile_page/binding/detail_profile_binding.dart';
 import 'package:tedikap_flutter_app/pages/detail_profile_page/view/detail_profile_page.dart';
 import 'package:tedikap_flutter_app/pages/history_page/binding/history_binding.dart';
@@ -30,12 +31,13 @@ part 'AppRoutes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH_PAGE;
+  static const INITIAL = Routes.CART_PAGE;
 
   static final routes = [
     GetPage(
         name: _Paths.BOTTOM_NAVBAR,
         page: () => BottomNavBar(),
+        
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 500)),
     GetPage(
@@ -89,6 +91,12 @@ class AppPages {
     GetPage(
         name: _Paths.DETAIL_PRODUCT_PAGE,
         page: () => DetailProduct(),
+        binding: DetailProductBinding(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 500)),
+        GetPage(
+        name: _Paths.DETAIL_SNACK_PAGE,
+        page: () => DetailSnack(),
         binding: DetailProductBinding(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 500)),

@@ -3,26 +3,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:tedikap_flutter_app/pages/splash_page/controller/splash_controller.dart';
 
-import 'dart:async';
 import '../../../utils/color_resources.dart';
 import '../../../utils/images.dart';
-import '../../../routes/AppPages.dart';
 
 
-class SplashPage extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashPage> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(Duration(seconds: 5), () {
-      Get.offNamed(Routes.ONBOARDING_PAGE);
-    });
-  }
+// ignore: must_be_immutable
+class SplashPage extends StatelessWidget {
+  SplashPage({super.key});
+  SplashController splashController = Get.put(SplashController());
 
   @override
   Widget build(BuildContext context) {

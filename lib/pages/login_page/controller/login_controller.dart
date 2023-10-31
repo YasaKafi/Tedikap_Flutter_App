@@ -55,8 +55,8 @@ class LoginController extends GetxController {
         duration: Duration(seconds: 2),
       ),
     );
-    // final prefs = await SharedPreferences.getInstance();
-    // prefs.setBool('isLoggedIn', true);
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isLoggedIn', true);
 
     // Navigasi ke halaman home
     Get.toNamed(Routes.HOME_PAGE);
