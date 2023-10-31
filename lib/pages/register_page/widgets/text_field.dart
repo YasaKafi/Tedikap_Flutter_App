@@ -116,13 +116,7 @@ class InputTextFormPhone extends StatelessWidget {
         keyboardType: keyboardInput,
         controller: registerController.phoneNumberController,
         style: textFieldInputB,
-        validator: (value) {
-          if (value!.isEmpty ||
-              !RegExp(r'^[0-9]{1,4}[-\s\./0-9]+$').hasMatch(value)) {
-            return 'Enter Correct Phone Number';
-          }
-          return null;
-        },
+        
         decoration: InputDecoration(
           hintText: hint,
           hintStyle: hintTextStylB,
