@@ -87,6 +87,13 @@ TextStyle ratingProductrStyle = GoogleFonts.sora(
         fontWeight: FontWeight.w700,
         fontSize: figmaFontsize(14)));
 
+TextStyle PhoneNumberStyle = GoogleFonts.sora(
+    textStyle: TextStyle(
+        color: ColorResources.white,
+        fontWeight: FontWeight.w600,
+        fontSize: figmaFontsize(12)));
+
+
 TextStyle dropdownTextStyle = GoogleFonts.raleway(
     textStyle: TextStyle(
         color: primaryTextColor,
