@@ -14,4 +14,6 @@ class Images {
   static const String teaLogo = 'assets/image/tea.svg';
   static const String nonteaLogo = 'assets/image/nontea.svg';
   static const String milkLogo = 'assets/image/teamilk.svg';
+  static const String CupPoint = 'assets/image/cup.svg';
+  static const String Whatsappicon = 'assets/image/icon_whatsapp.svg';
 }
