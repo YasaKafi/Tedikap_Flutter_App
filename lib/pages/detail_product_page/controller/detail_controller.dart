@@ -1,41 +1,51 @@
 import 'package:get/get.dart';
 import 'package:tedikap_flutter_app/data/datasource/api_controller.dart';
+import 'package:tedikap_flutter_app/data/models/cart_item_model.dart';
+import 'package:tedikap_flutter_app/data/models/product_response_model.dart';
+import 'package:tedikap_flutter_app/pages/cart_page/controller/cart_controller.dart';
+import 'package:tedikap_flutter_app/routes/AppPages.dart';
 
 class DetailProductController extends GetxController {
-  var apiController =
-      Get.find<ApiController>(); // Mengambil instance dari ApiController
+  RxInt quantity = 1.obs;
+  RxInt totalItemPrice = 0.obs;
 
-  RxInt quantity = 1.obs; // Jumlah
-  Map<int, RxDouble?> totalPrices = {};
-
-  RxDouble getProductPrice(int productId) {
-    return totalPrices[productId] ?? 0.0.obs;
+  void resetquantity() async {
+    await Future.delayed(Duration(seconds: 2));
+    quantity.value = 1;
   }
 
-  void increaseQuantity() {
-    if (quantity < apiController.teaSeries.length) {
-      quantity++;
-      updateTotalPrice();
+  void incrementQuantity() {
+    quantity.value++;
+  }
+
+  void decrementQuantity() {
+    if (quantity.value > 1) {
+      quantity.value--;
     }
   }
 
-  void decreaseQuantity() {
-    if (quantity > 1) {
-      quantity--;
-      updateTotalPrice();
-    }
+  void addToCart(Product product) {
+  final cartController = Get.put(CartController());
+  final existingItem = cartController.cartItems.firstWhereOrNull((item) => item.id == product.id);
+
+  if (existingItem != null) {
+    // Produk sudah ada di keranjang, tingkatkan kuantitas dan perbarui total harga
+    existingItem.quantity += quantity.value;
+    existingItem.totalItemPrice = existingItem.price * existingItem.quantity;
+  } else {
+    // Produk belum ada di keranjang, tambahkan sebagai item baru
+    cartController.addToCart(CartItem(
+      title: product.name!,
+      price: product.price!,
+      quantity: quantity.value,
+      image: product.imageUrl!,
+      id: product.id!,
+      totalItemPrice: product.price! * quantity.value,
+    ));
   }
 
-  void updateTotalPrice() {
-    if (apiController.teaSeries.isNotEmpty) {
-      for (int i = 0; i < apiController.teaSeries.length; i++) {
-        double price = apiController.teaSeries[i].price!.toDouble();
-        int? productId = apiController.teaSeries[i].id; // ID produk dari API
-        if (productId != null) {
-          // Memperbarui total harga produk
-          totalPrices[productId]?.value = price * quantity.value;
-        }
-      }
-    }
-  }
+  resetquantity();
+  Get.toNamed(Routes.CART_PAGE);
+}
+
 }

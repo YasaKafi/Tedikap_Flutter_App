@@ -12,3 +12,25 @@ List<Map<String, dynamic>> carouselImage = [
     'image': Images.promo5,
   },
 ];
+
+List<Map<String, dynamic>> categoryItem = [
+  {
+    'image': Images.snackLogo,
+    'title': 'Snack',
+  },
+  {
+    'image': Images.teaLogo,
+    'title': 'Tea',
+    'id' : 2,
+  },
+  {
+    'image': Images.milkLogo,
+    'title': 'Milk Tea',
+    'id' : 3,
+  },
+  {
+    'image': Images.nonteaLogo,
+    'title': 'Non Tea',
+    'id' : 4,
+  },
+];
