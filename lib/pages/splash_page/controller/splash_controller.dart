@@ -18,7 +18,7 @@ class SplashController extends GetxController {
       Get.toNamed(Routes.BOTTOM_NAVBAR);
     } else {
 
-      Get.toNamed(Routes.LOGIN_PAGE);
+      Get.toNamed(Routes.PROFILE_PAGE);
     }
   }
 }

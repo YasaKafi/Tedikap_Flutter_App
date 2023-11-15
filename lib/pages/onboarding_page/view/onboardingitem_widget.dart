@@ -64,7 +64,7 @@ class OnboardingItemWidget extends StatelessWidget {
              child: ElevatedButton(
              onPressed: () {
             if (controller.currentPage.value == controller.onboardingItems.length - 1) {
-              Get.offNamed(Routes.LOGIN_PAGE);
+              Get.offNamed(Routes.PROFILE_PAGE);
             } else {
               controller.pageController.nextPage(
                   duration: Duration(milliseconds: 500), curve: Curves.ease);
