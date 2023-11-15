@@ -2,48 +2,44 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tedikap_flutter_app/pages/login_page/controller/login_controller.dart';
+import 'package:tedikap_flutter_app/utils/color_resources.dart';
 
 import '../../../utils/custom_themes.dart';
 
-class myTextField extends StatelessWidget {
+class TextFieldCustom extends StatelessWidget {
   final String hint;
-
-  final TextEditingController controller;
   final TextInputType keyboardInput;
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
 
-  myTextField({
+  const TextFieldCustom({
     super.key,
     required this.hint,
-    required this.controller,
     required this.keyboardInput,
+    required this.controller,
+    required this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
-      style: textFieldInput,
-      decoration: InputDecoration(
-        hintText: hint,
-        hintStyle: hintTextStyle,
-        enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: primaryColor, width: 2.0),
-        ),
-        focusedBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Color(0xFFBA68C8),
-            width: 2.0,
+        validator: validator,
+        keyboardType: keyboardInput,
+        controller: controller,
+        style: textFieldInputB,
+        decoration: InputDecoration(
+          hintText: hint,
+          hintStyle: hintTextStylB,
+          enabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: primaryColor, width: 2.0),
           ),
-        ),
-      ),
-      validator: (value) {
-        if (value!.isEmpty ||
-            !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}').hasMatch(value)) {
-          return 'Enter Correct Email';
-        }
-        return null;
-      },
-    );
+          focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: primaryColor,
+              width: 2.0,
+            ),
+          ),
+        ));
   }
 }
 

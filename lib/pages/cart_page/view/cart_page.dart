@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:tedikap_flutter_app/data/datasource/api_controller.dart';
+import 'package:tedikap_flutter_app/pages/cart_page/controller/cart_controller.dart';
+import 'package:tedikap_flutter_app/pages/cart_page/widgets/bottom_payment_cart.dart';
+import 'package:tedikap_flutter_app/pages/cart_page/widgets/bottom_sheet_payment.dart';
 import 'package:tedikap_flutter_app/pages/cart_page/widgets/cart_box.dart';
+import 'package:tedikap_flutter_app/pages/cart_page/widgets/payment_box.dart';
+import 'package:tedikap_flutter_app/routes/AppPages.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
 import 'package:tedikap_flutter_app/utils/images.dart';
 
 class CartPage extends StatelessWidget {
-  final ApiController controller = Get.put(ApiController());
+  final CartController cartController = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,7 @@ class CartPage extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: () {
-            Get.back();
+            Get.offNamed(Routes.HOME_PAGE);
           },
           icon: const Icon(Icons.arrow_back_ios, color: ColorResources.black),
         ),
@@ -168,195 +173,47 @@ class CartPage extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(top: 10),
                     width: screenWidth,
-                    height: screenHeight * 0.6,
-                    child: ListView(
-                      children: [
-                        CartBox(
-                            screenHeight: screenHeight,
-                            screenWidth: screenWidth),
-                        CartBox(
-                            screenHeight: screenHeight,
-                            screenWidth: screenWidth),
-                        CartBox(
-                            screenHeight: screenHeight,
-                            screenWidth: screenWidth),
-                        CartBox(
-                            screenHeight: screenHeight,
-                            screenWidth: screenWidth),
-                        CartBox(
-                            screenHeight: screenHeight,
-                            screenWidth: screenWidth),
-                        CartBox(
-                            screenHeight: screenHeight,
-                            screenWidth: screenWidth),
-                        CartBox(
-                            screenHeight: screenHeight,
-                            screenWidth: screenWidth),
-                        CartBox(
-                            screenHeight: screenHeight,
-                            screenWidth: screenWidth),
-                        CartBox(
-                            screenHeight: screenHeight,
-                            screenWidth: screenWidth),
-                      ],
+                    height: screenHeight * 0.45,
+                    child: ListView.builder(
+                      itemCount: cartController.cartItems.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final cartItems = cartController.cartItems[index];
+                        return Dismissible(
+                          background: Container(
+                            width: screenWidth * 0.7,
+                            color: ColorResources.red,
+                            child: Icon(Icons.restore_from_trash),
+                          ),
+                          onDismissed: (direction) {
+                            cartController.removeItem(index);
+                          },
+                          key: ValueKey(cartController.cartItems[index].id),
+                          child: CartBox(
+                              screenHeight: screenHeight,
+                              screenWidth: screenWidth,
+                              item: cartItems,
+                              ),
+                              confirmDismiss: (direction) async {
+                            final confirmed = await cartController
+                                .showDeleteConfirmationDialog(context);
+                            return confirmed ??
+                                false;
+                          },
+                        );
+                      },
                     ),
                   )
                 ],
               ),
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                height: screenHeight * 0.17,
-                width: screenWidth,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0x26000000),
-                      blurRadius: 10,
-                      offset: Offset(0, -4),
-                      spreadRadius: 0,
-                    )
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Container(
-                      width: screenWidth * 0.877,
-                      height: screenHeight * 0.0438,
-                      margin: EdgeInsets.only(top: 20),
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 1),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        shadows: [
-                          BoxShadow(
-                            color: Color(0x3F000000),
-                            blurRadius: 4,
-                            offset: Offset(0, 4),
-                            spreadRadius: 0,
-                          )
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            top: 8.0, bottom: 8, left: 8, right: 12),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              width: screenWidth * 0.6,
-                              height: screenHeight,
-                              child: Row(
-                                children: [
-                                  Icon(Icons.discount),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Makin hemat pakai promo',
-                                    style: cartPageStyle(
-                                        color: primaryColor,
-                                        weight: FontWeight.w600,
-                                        fontSize: 15),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios_outlined,
-                              size: 16,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 20),
-                      width: screenWidth * 0.877,
-                      height: sizeBottomCard * 0.45,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Total Price',
-                                  style: cartPageStyle(
-                                      color: Color(0x38001733),
-                                      weight: FontWeight.w500,
-                                      fontSize: 14),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  'Rp. 15000',
-                                  style: cartPageStyle(
-                                      color: primaryColor,
-                                      weight: FontWeight.w600,
-                                      fontSize: 22),
-                                )
-                              ],
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Get.bottomSheet(Container(
-                                  height: screenHeight,
-                                  width: screenWidth,
-                                  decoration: ShapeDecoration(
-                                    color: ColorResources.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(35),
-                                        topRight: Radius.circular(35),
-                                      ),
-                                    ),
-                                  ),
-                                ));
-                              },
-                              child: Container(
-                                width: screenWidth * 0.3157,
-                                height: screenHeight * 0.0581,
-                                decoration: ShapeDecoration(
-                                  color: Color(0xFF324A59),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                ),
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.shopping_cart_sharp,
-                                        color: ColorResources.white,
-                                      ),
-                                      SizedBox(
-                                        width: 20,
-                                      ),
-                                      Text(
-                                        'Next',
-                                        style: cartPageStyle(
-                                            color: ColorResources.white,
-                                            weight: FontWeight.w600,
-                                            fontSize: 16),
-                                      )
-                                    ]),
-                              ),
-                            )
-                          ]),
-                    )
-                  ],
-                ),
-              ),
-            )
+            BottomPaymentCart(screenHeight: screenHeight, screenWidth: screenWidth, sizeBottomCard: sizeBottomCard)
           ],
         ),
       ),
     );
   }
 }
+
+
+
+

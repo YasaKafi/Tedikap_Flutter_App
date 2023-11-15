@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:tedikap_flutter_app/routes/AppPages.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
+import 'package:tedikap_flutter_app/utils/images.dart';
 
 import '../../../utils/custom_themes.dart';
 import '../../login_page/view/login_page.dart';
@@ -23,7 +24,7 @@ class FormRegister extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height * 0.6,
       color: primaryTextColorWhite,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +36,7 @@ class FormRegister extends StatelessWidget {
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 20, left: 20, right: 20),
-                    child: myTextFieldB(
+                    child: TextFieldCustom(
                       validator: (value) {
                         if (value!.isEmpty ||
                             !RegExp(r'^[a-z A-Z]+$').hasMatch(value!)) {
@@ -54,13 +55,14 @@ class FormRegister extends StatelessWidget {
                   Padding(
                       padding:
                           const EdgeInsets.only(top: 20, left: 20, right: 20),
-                      child: myTextFieldB(
+                      child: TextFieldCustom(
                         validator: (value) {
                           if (value!.isEmpty ||
                               !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}')
                                   .hasMatch(value!)) {
                             return 'Enter Correct Email';
                           }
+
                           return null;
                         },
                         hint: 'Email',
@@ -70,9 +72,19 @@ class FormRegister extends StatelessWidget {
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 20, left: 20, right: 20),
-                    child: InputTextFormPhone(
+                    child: TextFieldCustom(
                       keyboardInput: TextInputType.phone,
                       hint: 'PhoneNumber',
+                      controller: registerController.phoneNumberController,
+                      validator: (value) {
+                        if (value!.isEmpty ||
+                            !RegExp(r'^(\+62|0)[0-9]{9,13}$')
+                                .hasMatch(value!)) {
+                          return 'Enter Correct Phone Number';
+                        }
+
+                        return null;
+                      },
                     ),
                   ),
                   const SizedBox(
@@ -99,10 +111,19 @@ class FormRegister extends StatelessWidget {
               height: 55,
               child: ElevatedButton(
                 onPressed: () {
-                  registerController.signUp();
-                  // if (_formKey.currentState!.validate()) {
-
-                  //   }
+                  if (_formKey.currentState!.validate()) {
+                    // Semua kolom teks telah diisi dengan benar, lanjutkan dengan pendaftaran
+                    registerController.signUp();
+                  } else {
+                    // Tampilkan Snackbar jika form tidak valid
+                    Get.snackbar(
+                      'Error',
+                      'Form is not valid. Please check your input.',
+                      snackPosition: SnackPosition.TOP,
+                      backgroundColor: Colors.red,
+                      colorText: Colors.white,
+                    );
+                  }
                 },
                 child: Text(
                   'SIGN UP',
@@ -176,16 +197,20 @@ class FormRegister extends StatelessWidget {
                         onPressed: () async {
                           registerController.signInWithGoogle(context);
                         },
-                        child: Text(
-                          'Sign Up with Google',
-                          style: buttonTextGoogleB,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(Images.googleIcon,
+                                width: 20, height: 20),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              'Sign Up with Google',
+                              style: buttonTextGoogleB,
+                            ),
+                          ],
                         )),
-                    // icon: SvgPicture.asset('assets/logo_google.svg',
-                    //     width: 24, height: 24),
-                    // label: Text(
-                    //   'Sign Up with Google',
-                    //   style: buttonTextGoogleB,
-                    // ),
                   ),
                 ),
               ],

@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:tedikap_flutter_app/routes/AppPages.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
+import 'package:tedikap_flutter_app/utils/images.dart';
 
 import '../../../utils/custom_themes.dart';
 import '../../register_page/view/register_page.dart';
@@ -18,7 +19,7 @@ class FormLogin extends GetView<LoginController> {
     required GlobalKey<FormState> formKey,
   }) : _formKey = formKey;
 
-  // final LoginController controller = Get.put(LoginController());
+  final LoginController controller = Get.put(LoginController());
 
   // final LoginController loginController;
 
@@ -30,7 +31,7 @@ class FormLogin extends GetView<LoginController> {
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       width: screenWidth,
-      height: screenHeight,
+      height: screenHeight * 0.6,
       color: ColorResources.yellow,
       child: Form(
         key: _formKey,
@@ -42,10 +43,19 @@ class FormLogin extends GetView<LoginController> {
                   top: screenHeight * 0.0224,
                   left: screenWidth * 0.0485,
                   right: screenWidth * 0.0485),
-              child: myTextField(
-                controller: controller.emailController,
-                hint: 'Email',
-                keyboardInput: TextInputType.emailAddress,
+              child: TextFieldCustom(
+                validator: (value) {
+                          if (value!.isEmpty ||
+                              !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}')
+                                  .hasMatch(value!)) {
+                            return 'Enter Correct Email';
+                          }
+
+                          return null;
+                        },
+                        hint: 'Email',
+                        keyboardInput: TextInputType.emailAddress,
+                        controller: controller.emailController,
               ),
             ),
             SizedBox(
@@ -155,27 +165,28 @@ class FormLogin extends GetView<LoginController> {
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(primaryColor),
+                              MaterialStateProperty.all(ColorResources.yellow),
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
                         ),
                         onPressed: () async {
-                          // Tambahkan logika untuk menangani tombol Google
-                          // authController.signInWithGoogle(context);
+                          controller.signInWithGoogle(context);
                         },
-                        // icon: SvgPicture.asset('assets/logo_google.svg',
-                        //     width: screenWidth * 0.0582,
-                        //     height: screenHeight * 0.02697),
-                        // label: Text(
-                        //   'Sign Up with Google',
-                        //   style: buttonTextGoogle,
-                        // ),
-                        child: Text(
-                          'Sign Up with Google',
-                          style: buttonTextGoogle,
-                        ),
-                      ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(Images.googleIcon,
+                                width: 20, height: 20),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              'Sign Up with Google',
+                              style: buttonTextGoogleB,
+                            ),
+                          ],
+                        )),
                     ),
                   ),
                 ],

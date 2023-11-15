@@ -4,8 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'color_resources.dart';
 import 'dimensions.dart';
 
-
-
 TextStyle primaryTextStyle = GoogleFonts.sora(
     textStyle: TextStyle(
         color: ColorResources.primaryColor,
@@ -150,7 +148,7 @@ TextStyle buttonTextGoogleB = GoogleFonts.raleway(
     textStyle: TextStyle(
         color: primaryTextColor,
         fontWeight: FontWeight.w600,
-        fontSize: figmaFontsize(12)));
+        fontSize: figmaFontsize(14)));
 
 TextStyle orSignUpWith = GoogleFonts.raleway(
     textStyle: TextStyle(
@@ -192,19 +190,13 @@ TextStyle textFieldInputB = GoogleFonts.raleway(
     textStyle: TextStyle(
         color: primaryColor,
         fontWeight: FontWeight.w500,
-        fontSize: figmaFontsize(18)
-    )
-);
+        fontSize: figmaFontsize(18)));
 
 TextStyle onboardingBrandTextStyle = GoogleFonts.raleway(
     textStyle: TextStyle(
         color: primaryTextColor,
         fontWeight: FontWeight.bold,
-        fontSize: figmaFontsize(12)
-    )
-);
-
-
+        fontSize: figmaFontsize(12)));
 
 TextStyle detailButtonsText({required bool isDelete}) {
   return GoogleFonts.raleway(
@@ -232,20 +224,79 @@ TextStyle buttonStyle({required final color}) {
           fontSize: figmaFontsize(24)));
 }
 
-TextStyle detailPageStyle({required final color, required final weight,required final fontSize, }) {
+TextStyle detailPageStyle({
+  required final color,
+  required final weight,
+  required final fontSize,
+}) {
   return GoogleFonts.sora(
       textStyle: TextStyle(
-          color: color,
-          fontWeight: weight,
-          fontSize: figmaFontsize(fontSize)));
+          color: color, fontWeight: weight, fontSize: figmaFontsize(fontSize)));
 }
 
-TextStyle cartPageStyle({required final color, required final weight,required final fontSize, }) {
+TextStyle cartPageStyle({
+  required final color,
+  required final weight,
+  required final fontSize,
+}) {
   return GoogleFonts.sora(
       textStyle: TextStyle(
-          color: color,
-          fontWeight: weight,
-          fontSize: figmaFontsize(fontSize)));
+    color: color,
+    fontWeight: weight,
+    fontSize: figmaFontsize(fontSize),
+  ));
+}
+
+TextStyle strukPageStyle({
+  required final color,
+  required final weight,
+  required final fontSize,
+}) {
+  return GoogleFonts.sora(
+      textStyle: TextStyle(
+    color: color,
+    fontWeight: weight,
+    fontSize: figmaFontsize(fontSize),
+  ));
+}
+
+TextStyle searchPageStyle({
+  required final color,
+  required final weight,
+  required final fontSize,
+}) {
+  return GoogleFonts.sora(
+      textStyle: TextStyle(
+    color: color,
+    fontWeight: weight,
+    fontSize: figmaFontsize(fontSize),
+  ));
+}
+
+TextStyle homePageStyle({
+  required final color,
+  required final weight,
+  required final fontSize,
+}) {
+  return GoogleFonts.sora(
+      textStyle: TextStyle(
+    color: color,
+    fontWeight: weight,
+    fontSize: figmaFontsize(fontSize),
+  ));
+}
+
+TextStyle historyPageStyle({
+  required final color,
+  required final weight,
+  required final fontSize,
+}) {
+  return GoogleFonts.sora(
+      textStyle: TextStyle(
+    color: color,
+    fontWeight: weight,
+    fontSize: figmaFontsize(fontSize),
+  ));
 }
 
 TextStyle promoTextStyle({required final fontSize, required final fontWeight}) {

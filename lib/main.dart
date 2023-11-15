@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:tedikap_flutter_app/routes/AppPages.dart';
-import 'package:tedikap_flutter_app/utils/color_resources.dart';
-import 'package:tedikap_flutter_app/utils/custom_themes.dart';
-
 import 'firebase/firebase_options.dart';
 
 void main() async {
@@ -22,7 +19,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -34,23 +30,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class TestPage extends StatelessWidget {
-  const TestPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorResources.yellow,
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              Text("Create Account", style: primaryTextStyle,)
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}

@@ -2,6 +2,10 @@ import 'package:get/get.dart';
 import 'package:tedikap_flutter_app/pages/cart_page/binding/cart_binding.dart';
 import 'package:tedikap_flutter_app/pages/cart_page/view/cart_page.dart';
 import 'package:tedikap_flutter_app/pages/detail_product_page/binding/detail_binding.dart';
+import 'package:tedikap_flutter_app/pages/detail_product_page/view/detail_list_milk_page.dart';
+import 'package:tedikap_flutter_app/pages/detail_product_page/view/detail_list_nontea_page.dart';
+import 'package:tedikap_flutter_app/pages/detail_product_page/view/detail_list_snack_page.dart';
+import 'package:tedikap_flutter_app/pages/detail_product_page/view/detail_list_tea_page.dart';
 import 'package:tedikap_flutter_app/pages/detail_product_page/view/detail_product_page.dart';
 import 'package:tedikap_flutter_app/pages/detail_product_page/view/detail_snacks_page.dart';
 import 'package:tedikap_flutter_app/pages/detail_profile_page/binding/detail_profile_binding.dart';
@@ -15,6 +19,7 @@ import 'package:tedikap_flutter_app/pages/onboarding_page/binding/onboarding_bin
 import 'package:tedikap_flutter_app/pages/onboarding_page/view/onboarding_page.dart';
 import 'package:tedikap_flutter_app/pages/processing_page/binding/processing_binding.dart';
 import 'package:tedikap_flutter_app/pages/processing_page/view/processing_page.dart';
+import 'package:tedikap_flutter_app/pages/processing_page_2/view/processing_page_two.dart';
 import 'package:tedikap_flutter_app/pages/profile_page/binding/profile_binding.dart';
 import 'package:tedikap_flutter_app/pages/profile_page/view/profile_page.dart';
 import 'package:tedikap_flutter_app/pages/register_page/binding/register_binding.dart';
@@ -31,13 +36,12 @@ part 'AppRoutes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH_PAGE;
+  static const INITIAL = Routes.BOTTOM_NAVBAR;
 
   static final routes = [
     GetPage(
         name: _Paths.BOTTOM_NAVBAR,
         page: () => BottomNavBar(),
-        
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 500)),
     GetPage(
@@ -94,10 +98,30 @@ class AppPages {
         binding: DetailProductBinding(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 500)),
-        GetPage(
+    GetPage(
         name: _Paths.DETAIL_SNACK_PAGE,
         page: () => DetailSnack(),
         binding: DetailProductBinding(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 500)),
+    GetPage(
+        name: _Paths.DETAIL_LIST_TEA_PAGE,
+        page: () => DetailListTeaPage(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 500)),
+    GetPage(
+        name: _Paths.DETAIL_LIST_NONTEA_PAGE,
+        page: () => DetailListNonTeaPage(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 500)),
+    GetPage(
+        name: _Paths.DETAIL_LIST_MILK_PAGE,
+        page: () => DetailListMilkPage(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 500)),
+    GetPage(
+        name: _Paths.DETAIL_LIST_SNACK_PAGE,
+        page: () => DetailListSnackPage(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 500)),
     GetPage(
@@ -110,6 +134,12 @@ class AppPages {
         name: _Paths.PROCESSING_PAGE,
         page: () => ProcessingPage(),
         binding: ProcessingBinding(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 500)),
+    GetPage(
+        name: _Paths.PROCESSING_PAGE_TWO,
+        page: () => ProcessingPageTwo(),
+        // binding: ProcessingBindingTwo(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 500)),
     GetPage(
