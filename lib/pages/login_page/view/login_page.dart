@@ -18,74 +18,106 @@ class LoginPage extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: ColorResources.yellow,
-      body: Stack(
-        children: [
-          Positioned(
-            top: -screenHeight * 0.0416,
-            left: -screenWidth * 0.3276,
-            child: Container(
-              // ignore: sort_child_properties_last
-              child: Padding(
-                padding: EdgeInsets.only(
-                    left: screenWidth * 0.3638, top: screenHeight * 0.2023),
-                child: Text(
-                  'Welcome\nBack',
-                  style: loginHeaderTextStyle,
+      body: SingleChildScrollView(
+        child: Container(
+          width: screenWidth,
+          height: screenHeight,
+          child: Stack(
+            children: [
+              Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                color: primaryTextColorWhite,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Already have an account? ',
+                      style: forgotTextStyleB,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Get.toNamed(Routes.REGISTER_PAGE);
+                      },
+                      child: Text(
+                        'SIGN UP',
+                        style: buttonTextGoogleB,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              width: screenWidth * 1.2491,
-              height: screenHeight * 0.4717,
-              decoration: const ShapeDecoration(
-                color: Colors.white,
-                shape: OvalBorder(),
-              ),
             ),
-          ),
-          Positioned(
-            top: -screenHeight * 0.0562,
-            right: -screenWidth * 0.5829,
-            child: Container(
-              width: screenWidth * 1.1114,
-              height: screenHeight * 0.4487,
-              decoration: const ShapeDecoration(
-                color: ColorResources.yellow,
-                shape: OvalBorder(),
-              ),
-            ),
-          ),
-          Positioned(
-            top: screenHeight * 0.4487,
-            child: SingleChildScrollView(
-              child: FormLogin(formKey: _formKey,
-                  ),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              color: primaryTextColorWhite,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Already have an account? ',
-                    style: forgotTextStyleB,
-                  ),
-                  TextButton(
-                    onPressed: () {},
+              Positioned(
+                top: -screenHeight * 0.0416,
+                left: -screenWidth * 0.3276,
+                child: Container(
+                  // ignore: sort_child_properties_last
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        left: screenWidth * 0.3638, top: screenHeight * 0.2023),
                     child: Text(
-                      'SIGN UP',
-                      style: buttonTextGoogleB,
+                      'Welcome\nBack',
+                      style: loginHeaderTextStyle,
                     ),
                   ),
-                ],
+                  width: screenWidth * 1.2491,
+                  height: screenHeight * 0.4717,
+                  decoration: const ShapeDecoration(
+                    color: Colors.white,
+                    shape: OvalBorder(),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -screenHeight * 0.0562,
+                right: -screenWidth * 0.5829,
+                child: Container(
+                  width: screenWidth * 1.1114,
+                  height: screenHeight * 0.4487,
+                  decoration: const ShapeDecoration(
+                    color: ColorResources.yellow,
+                    shape: OvalBorder(),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: screenHeight * 0.4487,
+                child: SingleChildScrollView(
+                  child: FormLogin(formKey: _formKey,
+                      ),
+                ),
+              ),
+              Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                color: primaryTextColorWhite,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Already have an account? ',
+                      style: forgotTextStyleB,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Get.toNamed(Routes.REGISTER_PAGE);
+                      },
+                      child: Text(
+                        'SIGN UP',
+                        style: buttonTextGoogleB,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
+              
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

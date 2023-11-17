@@ -8,7 +8,6 @@ import 'package:tedikap_flutter_app/pages/splash_page/controller/splash_controll
 import '../../../utils/color_resources.dart';
 import '../../../utils/images.dart';
 
-
 // ignore: must_be_immutable
 class SplashPage extends StatelessWidget {
   SplashPage({super.key});
@@ -20,8 +19,8 @@ class SplashPage extends StatelessWidget {
       backgroundColor: ColorResources.white,
       body: Center(
         child: SvgPicture.asset(
-          Images.splashLogo, // Menggunakan konstanta dari kelas Images
-          width: 192.0, // Mengatur ukuran logo menjadi 192
+          Images.splashLogo, 
+          width: 192.0, 
         ),
       ),
     );

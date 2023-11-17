@@ -16,8 +16,8 @@ class BottomNavBar extends StatelessWidget {
 
   final List<Widget> pages = [
     HomePage(),
-    const SearchPage(),
-    const HistoryPage(),
+     SearchPage(),
+     HistoryPage(),
     const ProfilePage(),
   ];
 

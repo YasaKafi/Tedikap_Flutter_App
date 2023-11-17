@@ -59,7 +59,7 @@ class LoginController extends GetxController {
     prefs.setBool('isLoggedIn', true);
 
     // Navigasi ke halaman home
-    Get.toNamed(Routes.HOME_PAGE);
+    Get.toNamed(Routes.BOTTOM_NAVBAR);
   } else {
     Get.showSnackbar(
       GetSnackBar(

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:get/get.dart';
 
 class ProductResponseModel {
   String? status;
@@ -33,6 +34,8 @@ class ProductResponseModel {
       };
 }
 
+
+
 class Product {
   int? id;
   String? name;
@@ -43,6 +46,7 @@ class Product {
   String? imageUrl;
   DateTime? createdAt;
   DateTime? updatedAt;
+  RxInt quantity = 1.obs; // RxInt untuk membuat variabel yang dapat diamati
 
   Product({
     this.id,
@@ -54,7 +58,10 @@ class Product {
     this.imageUrl,
     this.createdAt,
     this.updatedAt,
-  });
+    int quantity = 1, // Menggunakan nilai awal 1 untuk quantity
+  }) {
+    this.quantity.value = quantity; // Mengatur nilai awal quantity dalam constructor
+  }
 
   String toJson() => json.encode(toMap());
 
@@ -88,3 +95,4 @@ class Product {
         "updated_at": updatedAt?.toIso8601String(),
       };
 }
+
