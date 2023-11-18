@@ -9,6 +9,7 @@ import 'package:tedikap_flutter_app/pages/cart_page/widgets/payment_box.dart';
 import 'package:tedikap_flutter_app/routes/AppPages.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 import 'package:tedikap_flutter_app/utils/images.dart';
 
 class BottomSheetPayment extends StatelessWidget {
@@ -41,11 +42,14 @@ class BottomSheetPayment extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
+            padding: const EdgeInsets.only(
+                top: Dimensions.paddingSizeLarge,
+                left: Dimensions.paddingSizeSmall,
+                right: Dimensions.paddingSizeSmall),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  width: screenWidth,
                   child: Column(
                     children: [
                       Text(
@@ -53,7 +57,7 @@ class BottomSheetPayment extends StatelessWidget {
                         style: cartPageStyle(
                             color: primaryColor,
                             weight: FontWeight.w600,
-                            fontSize: 18),
+                            fontSize: Dimensions.fontSizeExtraLarge),
                       ),
                       Obx(() {
                         return PaymentBox(
@@ -65,11 +69,11 @@ class BottomSheetPayment extends StatelessWidget {
                           textStyle: cartPageStyle(
                               color: Colors.blue,
                               weight: FontWeight.w600,
-                              fontSize: 14),
+                              fontSize: Dimensions.fontSizeDefault),
                           scale: 1.5,
                           isSelected: controller.selectedPayment.value == 0,
                           onChanged: (bool? value) {
-                            controller.setSelectedPayment(0,'Qris');
+                            controller.setSelectedPayment(0, 'Qris');
                           },
                         );
                       }),
@@ -83,7 +87,7 @@ class BottomSheetPayment extends StatelessWidget {
                           textStyle: cartPageStyle(
                               color: ColorResources.black,
                               weight: FontWeight.w500,
-                              fontSize: 14),
+                              fontSize: Dimensions.fontSizeDefault),
                           scale: 0.8,
                           isSelected: controller.selectedPayment.value == 1,
                           onChanged: (bool? value) {
@@ -101,7 +105,7 @@ class BottomSheetPayment extends StatelessWidget {
                           textStyle: cartPageStyle(
                               color: ColorResources.black,
                               weight: FontWeight.w500,
-                              fontSize: 14),
+                              fontSize: Dimensions.fontSizeDefault),
                           scale: 0.9,
                           isSelected: controller.selectedPayment.value == 2,
                           onChanged: (bool? value) {
@@ -119,7 +123,7 @@ class BottomSheetPayment extends StatelessWidget {
                           textStyle: cartPageStyle(
                               color: ColorResources.black,
                               weight: FontWeight.w500,
-                              fontSize: 14),
+                              fontSize: Dimensions.fontSizeDefault),
                           scale: 1.2,
                           isSelected: controller.selectedPayment.value == 3,
                           onChanged: (bool? value) {
@@ -127,75 +131,91 @@ class BottomSheetPayment extends StatelessWidget {
                           },
                         );
                       }),
-                      Container(
-                        margin: EdgeInsets.only(top: 20),
-                        width: screenWidth * 0.877,
-                        height: sizeBottomCard * 0.45,
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Total Price',
-                                    style: cartPageStyle(
-                                        color: ColorResources.black,
-                                        weight: FontWeight.w500,
-                                        fontSize: 14),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    'Rp. ' +
-                                        controller.getTotalPrice().toString(),
-                                    style: cartPageStyle(
-                                        color: primaryColor,
-                                        weight: FontWeight.w600,
-                                        fontSize: 22),
-                                  )
-                                ],
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Get.offNamed(Routes.PROCESSING_PAGE);
-                                },
-                                child: Container(
-                                  width: screenWidth * 0.4157,
-                                  height: screenHeight * 0.0581,
-                                  decoration: ShapeDecoration(
-                                    color: ColorResources.blueDark,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                  ),
-                                  child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.card_membership_outlined,
-                                          color: ColorResources.white,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        Text(
-                                          'Pay Now',
-                                          style: cartPageStyle(
-                                              color: ColorResources.white,
-                                              weight: FontWeight.w600,
-                                              fontSize: 16),
-                                        )
-                                      ]),
-                                ),
-                              ),
-                            ]),
-                      ),
+                      Obx(() {
+                        return PaymentBox(
+                          screenWidth: screenWidth,
+                          screenHeight: screenHeight,
+                          image: Images.linkaja,
+                          payment: 'Link Aja',
+                          balance: 'Saldo : Rp 200.000',
+                          textStyle: cartPageStyle(
+                              color: ColorResources.black,
+                              weight: FontWeight.w500,
+                              fontSize: Dimensions.fontSizeDefault),
+                          scale: 7,
+                          isSelected: controller.selectedPayment.value == 4,
+                          onChanged: (bool? value) {
+                            controller.setSelectedPayment(4, 'Link Aja');
+                          },
+                        );
+                      }),
                     ],
                   ),
-                )
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: Dimensions.marginSizeLarge),
+                  width: screenWidth * 0.877,
+                  height: sizeBottomCard * 0.45,
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Total Price',
+                              style: cartPageStyle(
+                                  color: ColorResources.black,
+                                  weight: FontWeight.w500,
+                                  fontSize: Dimensions.fontSizeDefault),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Rp. ' + controller.getTotalPrice().toString(),
+                              style: cartPageStyle(
+                                  color: primaryColor,
+                                  weight: FontWeight.w600,
+                                  fontSize: Dimensions.fontSizeHomeName),
+                            )
+                          ],
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Get.offNamed(Routes.PROCESSING_PAGE);
+                          },
+                          child: Container(
+                            width: screenWidth * 0.4157,
+                            height: screenHeight * 0.0581,
+                            decoration: ShapeDecoration(
+                              color: ColorResources.blueDark,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                            ),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.card_membership_outlined,
+                                    color: ColorResources.white,
+                                  ),
+                                  SizedBox(
+                                    width: Dimensions.marginSizeLarge,
+                                  ),
+                                  Text(
+                                    'Pay Now',
+                                    style: cartPageStyle(
+                                        color: ColorResources.white,
+                                        weight: FontWeight.w600,
+                                        fontSize: Dimensions.fontSizeLarge),
+                                  )
+                                ]),
+                          ),
+                        ),
+                      ]),
+                ),
               ],
             ),
           ),

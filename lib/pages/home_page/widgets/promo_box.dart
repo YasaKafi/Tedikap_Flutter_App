@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 import 'package:tedikap_flutter_app/utils/images.dart';
 
 class PromoBoxWidget extends StatelessWidget {
@@ -17,9 +18,9 @@ class PromoBoxWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: screenWidth,
-      margin: EdgeInsets.only(top: 10),
+      margin: EdgeInsets.only(top: Dimensions.marginSizeSmall),
       height: screenHeight * 0.51,
-      padding: EdgeInsets.only(left: 20, right: 20),
+      padding: EdgeInsets.only(left: Dimensions.paddingSizeLarge, right: Dimensions.paddingSizeLarge),
       color: ColorResources.white,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,18 +28,18 @@ class PromoBoxWidget extends StatelessWidget {
           Text(
             'Jajan Makin Hemat',
             style: promoTextStyle(
-                fontSize: 16, fontWeight: FontWeight.w700),
+                fontSize: Dimensions.fontSizeLarge, fontWeight: FontWeight.w700),
           ),
           SizedBox(
-            height: 5,
+            height: Dimensions.marginSizeExtraSmall,
           ),
           Text(
             'Dapatkan diskon dan harga spesial hanya dengan melakukan pemesanan di App Tedikap',
             style: promoTextStyle(
-                fontSize: 14, fontWeight: FontWeight.w400),
+                fontSize: Dimensions.fontSizeLarge, fontWeight: FontWeight.w400),
           ),
           SizedBox(
-            height: 15,
+            height: Dimensions.paddingSizeDefault,
           ),
           Container(
             height: screenHeight * 0.2,
@@ -78,7 +79,7 @@ class PromoBox2Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+      margin: EdgeInsets.only(top: Dimensions.marginSizeSmall, left: Dimensions.marginSizeLarge, right: Dimensions.marginSizeLarge),
       height: screenHeight * 0.32,
       decoration: BoxDecoration(
         boxShadow: [
@@ -106,30 +107,30 @@ class PromoBox2Widget extends StatelessWidget {
                     fit: BoxFit.cover)),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 10, top: 10),
+            padding: const EdgeInsets.only(left: Dimensions.paddingSizeSmall, top: Dimensions.paddingSizeSmall),
             child: Text(
               'Dapatkan Potongan Sebesar Rp.20.000',
               style: promoTextStyle(
-                  fontSize: 16, fontWeight: FontWeight.w700),
+                  fontSize: Dimensions.fontSizeLarge, fontWeight: FontWeight.w700),
             ),
           ),
           SizedBox(
             height: 5,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.only(left: Dimensions.paddingSizeSmall),
             child: Text(
               'Potongan Harga ini hanya berlaku bagi Anak-anak kelas 12 yang sebentar lagi akan lulus dari sekolah',
               style: promoTextStyle(
-                  fontSize: 14, fontWeight: FontWeight.w400),
+                  fontSize: Dimensions.fontSizeDefault, fontWeight: FontWeight.w400),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 10, top: 10),
+            padding: const EdgeInsets.only(left: Dimensions.paddingSizeSmall, top: Dimensions.paddingSizeSmall),
             child: Text(
               'S&K Berlaku',
               style: promoTextStyle(
-                  fontSize: 14, fontWeight: FontWeight.w700),
+                  fontSize: Dimensions.fontSizeDefault, fontWeight: FontWeight.w700),
             ),
           ),
         ],

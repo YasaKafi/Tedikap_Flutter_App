@@ -34,7 +34,7 @@ class RegisterController extends GetxController {
   }
 
   void login() {
-    Get.offNamed(Routes.LOGIN_PAGE);
+    Get.offNamed(Routes.BOTTOM_NAVBAR);
   }
 
   @override

@@ -10,6 +10,7 @@ import 'package:tedikap_flutter_app/pages/cart_page/widgets/payment_box.dart';
 import 'package:tedikap_flutter_app/routes/AppPages.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 import 'package:tedikap_flutter_app/utils/images.dart';
 
 class CartPage extends StatelessWidget {
@@ -50,7 +51,7 @@ class CartPage extends StatelessWidget {
                 children: [
                   Container(
                     padding:
-                        const EdgeInsets.only(top: 20, left: 20, right: 20),
+                        const EdgeInsets.only(top: Dimensions.paddingSizeLarge, left: Dimensions.paddingSizeLarge, right: Dimensions.paddingSizeLarge),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -62,7 +63,7 @@ class CartPage extends StatelessWidget {
                           children: [
                             Container(
                               margin: const EdgeInsets.only(
-                                  left: 10, top: 20, right: 10),
+                                  left: Dimensions.marginSizeSmall, top: Dimensions.marginSizeLarge, right: Dimensions.marginSizeSmall),
                               width: 60,
                               height: 60,
                               decoration:
@@ -70,7 +71,7 @@ class CartPage extends StatelessWidget {
                               child: SvgPicture.asset(Images.splashLogo),
                             ),
                             Container(
-                              padding: const EdgeInsets.only(top: 20),
+                              padding: const EdgeInsets.only(top: Dimensions.paddingSizeLarge),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -78,7 +79,7 @@ class CartPage extends StatelessWidget {
                                     "Tedikap RUS",
                                     style: cartPageStyle(
                                         color: primaryColor,
-                                        fontSize: 18,
+                                        fontSize: Dimensions.fontSizeExtraLarge,
                                         weight: FontWeight.bold),
                                   ),
                                   const SizedBox(
@@ -88,7 +89,7 @@ class CartPage extends StatelessWidget {
                                     "500m dari lokasimu",
                                     style: cartPageStyle(
                                         color: primaryColor,
-                                        fontSize: 14,
+                                        fontSize: Dimensions.fontSizeDefault,
                                         weight: FontWeight.w400),
                                   ),
                                 ],
@@ -100,8 +101,8 @@ class CartPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(left: 10, right: 10),
-                    margin: const EdgeInsets.only(top: 10, left: 20, right: 20),
+                    padding: const EdgeInsets.only(left: Dimensions.paddingSizeSmall, right: Dimensions.paddingSizeSmall),
+                    margin: const EdgeInsets.only(top: Dimensions.marginSizeSmall, left: Dimensions.marginSizeLarge, right: Dimensions.marginSizeLarge),
                     height: screenHeight * 0.0337,
                     width: screenWidth,
                     decoration: ShapeDecoration(
@@ -119,7 +120,7 @@ class CartPage extends StatelessWidget {
                               children: [
                                 const Icon(
                                   Icons.timer_rounded,
-                                  size: 18,
+                                  size: Dimensions.iconSizeMedium,
                                 ),
                                 Padding(
                                     padding: const EdgeInsets.only(left: 10),
@@ -131,13 +132,13 @@ class CartPage extends StatelessWidget {
                                               style: cartPageStyle(
                                                   color: primaryColor,
                                                   weight: FontWeight.w400,
-                                                  fontSize: 14)),
+                                                  fontSize: Dimensions.fontSizeDefault)),
                                           TextSpan(
                                               text: '15 Menit',
                                               style: cartPageStyle(
                                                   color: primaryColor,
                                                   weight: FontWeight.w600,
-                                                  fontSize: 14)),
+                                                  fontSize: Dimensions.fontSizeDefault)),
                                         ],
                                       ),
                                     )),
@@ -149,7 +150,7 @@ class CartPage extends StatelessWidget {
                             style: cartPageStyle(
                                 color: primaryColor,
                                 weight: FontWeight.w400,
-                                fontSize: 12),
+                                fontSize: Dimensions.fontSizeSmall),
                           )
                         ]),
                   ),
@@ -161,17 +162,17 @@ class CartPage extends StatelessWidget {
                     thickness: 8,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 20, top: 20),
+                    padding: EdgeInsets.only(left: Dimensions.paddingSizeLarge, top: Dimensions.paddingSizeLarge),
                     child: Text(
                       "Detail Pesanan",
                       style: cartPageStyle(
                           color: primaryColor,
                           weight: FontWeight.w600,
-                          fontSize: 18),
+                          fontSize: Dimensions.fontSizeExtraLarge),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 10),
+                    margin: EdgeInsets.only(top: Dimensions.marginSizeSmall),
                     width: screenWidth,
                     height: screenHeight * 0.45,
                     child: ListView.builder(

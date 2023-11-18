@@ -14,6 +14,7 @@ class Images {
   static const String gopay = 'assets/image/gopay.png';
   static const String ovo = 'assets/image/ovo.png';
   static const String dana = 'assets/image/dana.png';
+  static const String linkaja = 'assets/image/linkaja.png';
   static const String loadingCup = 'assets/image/loadingcoffee.gif';
   static const String checkList = 'assets/image/checklist.gif';
   static const String check = 'assets/image/check.svg';

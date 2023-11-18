@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({
@@ -10,17 +11,11 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
-     
-
       child: Center(
-       
         child: Text(
           "Detail Product",
-          style: TextStyle(
-              color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+          style: detailPageStyle(color: primaryColor, weight: FontWeight.bold, fontSize: Dimensions.fontSizeHomeName)
         ),
-        
       ),
     );
   }

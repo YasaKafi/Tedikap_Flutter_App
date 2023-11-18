@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 import 'package:tedikap_flutter_app/utils/images.dart';
 
 class PoinBoxWidget extends StatelessWidget {
@@ -37,14 +38,14 @@ class PoinBoxWidget extends StatelessWidget {
           Row(
             children: [
               Container(
-                margin: EdgeInsets.only(left: 20, top: 10),
+                margin: EdgeInsets.only(left: Dimensions.marginSizeLarge, top: Dimensions.marginSizeSmall),
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(shape: BoxShape.circle),
                 child: SvgPicture.asset(Images.splashLogo),
               ),
               SizedBox(
-                width: 15,
+                width: Dimensions.marginSizeDefault,
               ),
               Text(
                 "5 Poin",
@@ -62,7 +63,7 @@ class PoinBoxWidget extends StatelessWidget {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(left: 20, right: 20, top: 5),
+                const EdgeInsets.only(left: Dimensions.paddingSizeLarge, right: Dimensions.paddingSizeLarge, top: Dimensions.paddingSizeExtraSmall),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -72,7 +73,7 @@ class PoinBoxWidget extends StatelessWidget {
                 ),
                 Icon(
                   Icons.arrow_forward_ios,
-                  size: 15,
+                  size: Dimensions.iconSizeSmall,
                 )
               ],
             ),

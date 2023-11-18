@@ -1,41 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tedikap_flutter_app/utils/images.dart';
+import 'package:tedikap_flutter_app/pages/navigator_page/view/navbar.dart';
+import 'package:tedikap_flutter_app/routes/AppPages.dart';
 
-class OnBoardingController extends GetxController {
-  final PageController pageController = PageController();
-  final RxInt currentPage = 0.obs;
+class OnBoardingController extends GetxController  {
+  late PageController pageController = PageController(initialPage: 0);
 
-  final List<OnboardingItem> onboardingItems = [
-    OnboardingItem(
-      title: 'Talk about life over your favorite tea',
-      subtitle: 'At Tedikap, we believe that tea chats are the best chats. Lets create unforgettable moments together.',
-      image: Images.onboardlogo1,
-    ),
-    OnboardingItem(
-      title: 'Order tea in the palm of your hand',
-      subtitle: 'Order your favorite tea right from the app and enjoy fast delivery to your door.',
-      image: Images.onboardlogo2,
-    ),
-    OnboardingItem(
-      title: 'Save your time in ordering with us',
-      subtitle: 'We value your precious time. In a few easy steps, you can order the tea of your choice hassle-free.',
-      image: Images.onboardlogo3,
-    ),
+  var currentPage = 0.obs;
 
-  ];
+  
 
-  @override
-  void onClose() {
-    pageController.dispose();
-    super.onClose();
+  void onPageChanged(int value) {
+    currentPage.value = value;
+  }
+
+  void navigateToNextPage(PageController pageController) {
+    pageController.nextPage(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.ease,
+    );
+  }
+
+  void navigateToStart() {
+    Get.toNamed(Routes.REGISTER_PAGE);
   }
 }
 
-class OnboardingItem {
-  final String title;
-  final String subtitle;
-  final String image;
-
-  OnboardingItem({required this.title, required this.subtitle, required this.image});
-}

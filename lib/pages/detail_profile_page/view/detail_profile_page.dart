@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tedikap_flutter_app/pages/detail_profile_page/widget/custom_textfield.dart';
 import 'package:tedikap_flutter_app/pages/detail_profile_page/widget/editimage_button.dart';
 import 'package:tedikap_flutter_app/pages/detail_profile_page/widget/save_button.dart'; // Sesuaikan path sesuai struktur proyek Anda
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
+import 'package:tedikap_flutter_app/utils/custom_themes.dart';
 import 'package:tedikap_flutter_app/utils/dimensions.dart';
 
 class DetailProfile extends StatelessWidget {
@@ -13,8 +15,19 @@ class DetailProfile extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorResources.gold,
       appBar: AppBar(
-        title: const Text("Detail Profile"),
-        actions: const [],
+        centerTitle: true,
+        title: Text(
+          "Detail Profile",
+          style: titleAppBarProductrStyle,
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back_ios, color: ColorResources.black),
+        ),
+        backgroundColor: ColorResources.white,
+        elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Column(

@@ -12,6 +12,7 @@ import 'package:tedikap_flutter_app/pages/home_page/widgets/poin_box.dart';
 import 'package:tedikap_flutter_app/pages/home_page/widgets/promo_box.dart';
 import 'package:tedikap_flutter_app/routes/AppPages.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 import 'package:tedikap_flutter_app/utils/images.dart';
 
 import '../../../data/datasource/mock_data.dart';
@@ -52,10 +53,10 @@ class HomePage extends GetView<HomeController> {
                         screenWidth: screenWidth,
                         carouselImageStrings: carouselImageStrings),
                     Container(
-                      padding: EdgeInsets.only(left: 20, right: 20),
+                      padding: EdgeInsets.only(left: Dimensions.paddingSizeLarge, right: Dimensions.paddingSizeLarge),
                       width: screenWidth,
                       margin: EdgeInsets.only(
-                        top: 10,
+                        top: Dimensions.marginSizeSmall,
                       ),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -101,7 +102,7 @@ class HomePage extends GetView<HomeController> {
                     PromoBoxWidget(
                         screenWidth: screenWidth, screenHeight: screenHeight),
                     SizedBox(
-                      height: 10,
+                      height: Dimensions.marginSizeSmall,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,7 +111,7 @@ class HomePage extends GetView<HomeController> {
                           children: [
                             Container(
                               margin: EdgeInsets.only(
-                                left: 20,
+                                left: Dimensions.marginSizeLarge,
                               ),
                               width: 30,
                               height: 30,
@@ -118,7 +119,7 @@ class HomePage extends GetView<HomeController> {
                               child: SvgPicture.asset(Images.splashLogo),
                             ),
                             SizedBox(
-                              width: 15,
+                              width: Dimensions.marginSizeDefault,
                             ),
                             Text(
                               "Tedikap",
@@ -131,17 +132,17 @@ class HomePage extends GetView<HomeController> {
                           children: [
                             Container(
                               margin: EdgeInsets.only(
-                                left: 20,
+                                left: Dimensions.marginSizeLarge,
                               ),
                               child: Text(
                                 'Menu Terlaris',
                                 style: promoTextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w700),
+                                    fontSize: Dimensions.fontSizeExtraLarge, fontWeight: FontWeight.w700),
                               ),
                             ),
                             Container(
                               margin: EdgeInsets.only(
-                                right: 20,
+                                right: Dimensions.marginSizeLarge,
                               ),
                               child: TextButton(
                                 onPressed: () {},
@@ -156,7 +157,7 @@ class HomePage extends GetView<HomeController> {
                                     ),
                                     Icon(
                                       Icons.arrow_forward_ios,
-                                      size: 15,
+                                      size: Dimensions.fontSizeLarge,
                                       color: primaryColor,
                                     )
                                   ],
@@ -204,7 +205,7 @@ class HomePage extends GetView<HomeController> {
                     PromoBox2Widget(screenHeight: screenHeight),
                     Container(
                       margin: EdgeInsets.only(
-                        top: 20,
+                        top: Dimensions.marginSizeLarge,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,7 +214,7 @@ class HomePage extends GetView<HomeController> {
                             children: [
                               Container(
                                 margin: EdgeInsets.only(
-                                  left: 20,
+                                  left: Dimensions.marginSizeLarge,
                                 ),
                                 width: 30,
                                 height: 30,
@@ -222,7 +223,7 @@ class HomePage extends GetView<HomeController> {
                                 child: SvgPicture.asset(Images.splashLogo),
                               ),
                               SizedBox(
-                                width: 15,
+                                width: Dimensions.marginSizeDefault,
                               ),
                               Text(
                                 "Tedikap",
@@ -235,18 +236,18 @@ class HomePage extends GetView<HomeController> {
                             children: [
                               Container(
                                 margin: EdgeInsets.only(
-                                  left: 20,
+                                  left: Dimensions.marginSizeLarge,
                                 ),
                                 child: Text(
                                   'Snack yang bikin kenyang',
                                   style: promoTextStyle(
-                                      fontSize: 16,
+                                      fontSize: Dimensions.fontSizeLarge,
                                       fontWeight: FontWeight.w700),
                                 ),
                               ),
                               Container(
                                 margin: EdgeInsets.only(
-                                  right: 20,
+                                  right: Dimensions.marginSizeLarge,
                                 ),
                                 child: TextButton(
                                   onPressed: () {
@@ -263,7 +264,7 @@ class HomePage extends GetView<HomeController> {
                                       ),
                                       Icon(
                                         Icons.arrow_forward_ios,
-                                        size: 15,
+                                        size: Dimensions.fontSizeLarge,
                                         color: primaryColor,
                                       )
                                     ],

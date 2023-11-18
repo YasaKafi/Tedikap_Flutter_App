@@ -64,7 +64,7 @@ class AppPages {
         transitionDuration: const Duration(milliseconds: 1500)),
     GetPage(
         name: _Paths.ONBOARDING_PAGE,
-        page: () => OnBoarding(),
+        page: () => OnBoardingScreen(),
         binding: OnBoardingBinding(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 1500)),
@@ -157,11 +157,6 @@ class AppPages {
         page: () => SplashPage(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 1500)),
-    GetPage(
-        name: _Paths.ONBOARDING_PAGE,
-        page: () => OnBoarding(),
-        binding: OnBoardingBinding(),
-        transition: Transition.fadeIn,
-        transitionDuration: const Duration(milliseconds: 1500)),
+    
   ];
 }

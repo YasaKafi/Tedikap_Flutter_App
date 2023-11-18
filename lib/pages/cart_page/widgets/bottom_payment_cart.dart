@@ -5,6 +5,7 @@ import 'package:tedikap_flutter_app/pages/cart_page/controller/cart_controller.d
 import 'package:tedikap_flutter_app/pages/cart_page/widgets/bottom_sheet_payment.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 
 class BottomPaymentCart extends StatelessWidget {
   BottomPaymentCart({
@@ -42,7 +43,7 @@ class BottomPaymentCart extends StatelessWidget {
             Container(
               width: screenWidth * 0.877,
               height: screenHeight * 0.0438,
-              margin: EdgeInsets.only(top: 20),
+              margin: EdgeInsets.only(top: Dimensions.marginSizeLarge),
               decoration: ShapeDecoration(
                 color: Colors.white,
                 shape: RoundedRectangleBorder(
@@ -60,7 +61,7 @@ class BottomPaymentCart extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.only(
-                    top: 8.0, bottom: 8, left: 8, right: 12),
+                    top: Dimensions.paddingSizeMedium, bottom: Dimensions.paddingSizeMedium, left: Dimensions.paddingSizeMedium, right: Dimensions.paddingSizeSmallX2),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -78,21 +79,21 @@ class BottomPaymentCart extends StatelessWidget {
                             style: cartPageStyle(
                                 color: primaryColor,
                                 weight: FontWeight.w600,
-                                fontSize: 15),
+                                fontSize: Dimensions.fontSizeLarge),
                           )
                         ],
                       ),
                     ),
                     Icon(
                       Icons.arrow_forward_ios_outlined,
-                      size: 16,
+                      size: Dimensions.iconSizeSmall,
                     )
                   ],
                 ),
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 20),
+              margin: EdgeInsets.only(top: Dimensions.marginSizeLarge),
               width: screenWidth * 0.877,
               height: sizeBottomCard * 0.45,
               child: Row(
@@ -106,7 +107,7 @@ class BottomPaymentCart extends StatelessWidget {
                           style: cartPageStyle(
                               color: ColorResources.black,
                               weight: FontWeight.w500,
-                              fontSize: 14),
+                              fontSize: Dimensions.fontSizeLarge),
                         ),
                         SizedBox(
                           height: 5,
@@ -118,7 +119,7 @@ class BottomPaymentCart extends StatelessWidget {
                             style: cartPageStyle(
                                 color: primaryColor,
                                 weight: FontWeight.w600,
-                                fontSize: 22),
+                                fontSize: Dimensions.fontSizeHomeName),
                           );
                         })
                       ],

@@ -159,6 +159,7 @@ class StruckPage extends StatelessWidget {
                                 child: ListView.builder(
                                   itemCount: cartController.cartItems.length,
                                   itemBuilder: (context, index) {
+                                    print(cartController.cartItems.length);
                                     final cartItem =
                                         cartController.cartItems[index];
                                     return ProductOrder(
@@ -166,8 +167,7 @@ class StruckPage extends StatelessWidget {
                                       quantity: cartItem.quantity,
                                     );
                                   },
-                                ))
-                                ),
+                                ))),
                         SizedBox(
                           height: 10,
                         ),
@@ -272,7 +272,7 @@ class StruckPage extends StatelessWidget {
                         allCartItems,
                         controller.currentTime.value,
                         controller.currentDate.value);
-                        cartController.cartItems.clear();
+                    cartController.cartItems.clear();
                     Get.offNamed(Routes.BOTTOM_NAVBAR);
                   },
                   child: Container(

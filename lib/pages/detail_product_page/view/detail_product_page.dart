@@ -8,6 +8,7 @@ import 'package:tedikap_flutter_app/pages/detail_product_page/widgets/payment_op
 import 'package:tedikap_flutter_app/pages/detail_product_page/widgets/size_drink_box.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 
 class DetailProduct extends StatelessWidget {
   DetailProduct({
@@ -22,7 +23,6 @@ class DetailProduct extends StatelessWidget {
     final teaSeries = Get.arguments as Product;
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    double screenButtonBuy = MediaQuery.of(context).size.height * 0.06284;
     return Scaffold(
       backgroundColor: ColorResources.white,
       appBar: AppBar(
@@ -48,7 +48,7 @@ class DetailProduct extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: Dimensions.paddingSizeSmall),
                 child: AspectRatio(
                   aspectRatio: 2,
                   child: Container(
@@ -69,7 +69,7 @@ class DetailProduct extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 50, left: 40, right: 40),
+                margin: EdgeInsets.only(top: Dimensions.marginSizeExtraLargeX2, left: Dimensions.marginSizeOnboardLarge, right: Dimensions.marginSizeOnboardLarge),
                 height: screenHeight * 0.35,
                 width: screenWidth,
                 child: Column(
@@ -83,17 +83,17 @@ class DetailProduct extends StatelessWidget {
                           weight: FontWeight.bold),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: Dimensions.marginSizeSmall,
                     ),
                     Text(
                       teaSeries.category ?? "",
                       style: detailPageStyle(
                           color: primaryColor,
-                          fontSize: 14,
+                          fontSize: Dimensions.fontSizeDefault,
                           weight: FontWeight.w400),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: Dimensions.marginSizeLarge,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -101,16 +101,16 @@ class DetailProduct extends StatelessWidget {
                         Icon(
                           Icons.star_rate_rounded,
                           color: Colors.orange,
-                          size: 25,
+                          size: Dimensions.iconSizeDefault,
                         ),
                         SizedBox(
                           width: 5,
                         ),
                         Text(
-                          teaSeries.rating.toString() ?? "0",
+                          teaSeries.rating!.toDouble().toString() ?? "0",
                           style: detailPageStyle(
                               color: primaryColor,
-                              fontSize: 16,
+                              fontSize: Dimensions.fontSizeLarge,
                               weight: FontWeight.bold),
                         ),
                         SizedBox(
@@ -120,36 +120,36 @@ class DetailProduct extends StatelessWidget {
                           '(230)',
                           style: detailPageStyle(
                               color: ColorResources.greyBold,
-                              fontSize: 14,
+                              fontSize: Dimensions.fontSizeDefault,
                               weight: FontWeight.w400),
                         ),
                       ],
                     ),
                     SizedBox(
-                      height: 20,
+                      height: Dimensions.marginSizeLarge,
                     ),
                     Divider(
                       thickness: 1,
                       color: ColorResources.grey,
                     ),
                     SizedBox(
-                      height: 20,
+                      height: Dimensions.marginSizeLarge,
                     ),
                     Text(
                       "Description",
                       style: detailPageStyle(
                           color: primaryColor,
-                          fontSize: 22,
+                          fontSize: Dimensions.fontSizeHomeName,
                           weight: FontWeight.bold),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: Dimensions.marginSizeSmall,
                     ),
                     Text(
                       teaSeries.description ?? "",
                       style: detailPageStyle(
                           color: primaryColor,
-                          fontSize: 14,
+                          fontSize: Dimensions.fontSizeDefault,
                           weight: FontWeight.w400),
                     ),
                   ],
@@ -158,7 +158,7 @@ class DetailProduct extends StatelessWidget {
               Container(
                 width: screenWidth,
                 height: screenHeight * 0.3,
-                margin: EdgeInsets.only(top: 20, left: 40, right: 40),
+                margin: EdgeInsets.only(top: Dimensions.marginSizeLarge, left: Dimensions.marginSizeOnboardLarge, right: Dimensions.marginSizeOnboardLarge),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -169,17 +169,17 @@ class DetailProduct extends StatelessWidget {
                       screenHeight: screenHeight,
                     ),
                     SizedBox(
-                      height: 20,
+                      height: Dimensions.marginSizeLarge,
                     ),
                     CompositionDrink(
                         screenWidth: screenWidth, screenHeight: screenHeight),
                     SizedBox(
-                      height: 20,
+                      height: Dimensions.marginSizeLarge,
                     ),
                     SizeDrink(
                         screenWidth: screenWidth, screenHeight: screenHeight),
                     SizedBox(
-                      height: 20,
+                      height: Dimensions.marginSizeLarge,
                     ),
                     PaymentOptions(
                       screenWidth: screenWidth,
