@@ -12,12 +12,14 @@ class DetailProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: ColorResources.gold,
+      backgroundColor: ColorResources.white,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Detail Profile",
+          "Detail",
           style: titleAppBarProductrStyle,
         ),
         leading: IconButton(
@@ -26,22 +28,29 @@ class DetailProfile extends StatelessWidget {
           },
           icon: Icon(Icons.arrow_back_ios, color: ColorResources.black),
         ),
-        backgroundColor: ColorResources.white,
+        backgroundColor: ColorResources.gold,
         elevation: 0,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 180),
-                  padding: const EdgeInsets.all(10),
-                  width: 430,
-                  height: 515,
-                  decoration: BoxDecoration(
-                    color: ColorResources.white,
-                  ),
+        child: Container(
+          width: screenWidth,
+          height: screenHeight,
+          child: Stack(
+            children: [
+              Container(
+                width: screenWidth,
+                height: screenHeight * 0.3,
+                color: ColorResources.gold,
+                
+              ),
+              Positioned(
+                top: screenHeight * 0.3,
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Dimensions.paddingSizeLarge),
+                  width: screenWidth,
+                  height: screenHeight * 0.7,
+                  color: ColorResources.white,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -50,65 +59,71 @@ class DetailProfile extends StatelessWidget {
                         hintText: 'Username',
                         keyboardType: TextInputType.text,
                       ),
-                      SizedBox(height: 25),
+                      SizedBox(height: 30),
                       CustomTextField(
                         hintText: 'Email',
                         keyboardType: TextInputType.text,
                       ),
-                      SizedBox(height: 25),
+                      SizedBox(height: 30),
                       CustomTextField(
                         hintText: 'Tanggal Lahir',
                         keyboardType: TextInputType.text,
                       ),
-                      SizedBox(height: 25),
+                      SizedBox(height: 30),
                       CustomTextField(
                         hintText: 'Jenis Kelamin',
                         keyboardType: TextInputType.text,
                       ),
-                      SizedBox(height: 25),
+                      SizedBox(height: 30),
                       CustomTextField(
                         hintText: 'Nomor Ponsel',
                         keyboardType: TextInputType.text,
                       ),
-                      SizedBox(height: 25),
+                      SizedBox(height: 30),
+                      Container(
+                        margin: EdgeInsets.only(top: Dimensions.marginSizeExtraLarge),
+                        child:SaveButton(
+                          onPressed: () {
+                            print('Tombol Simpan Ditekan');
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    margin: EdgeInsets.only(top: 90),
-                    width: 190,
-                    height: 190,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: ColorResources.grey,
+              ),
+              Align(
+                alignment: Alignment.topCenter,
+                child: Stack(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 160),
+                      width: 190,
+                      height: 190,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: ColorResources.grey,
+                      ),
+                      child: Center(
+                        child: Icon(Icons.person,
+                            size: 80, color: ColorResources.primaryColor),
+                      ),
                     ),
-                    child: CircleAvatar(
-                      radius: 55,
-                      backgroundColor: ColorResources.grey,
-                      child: Icon(Icons.person, size: 80, color: ColorResources.primaryColor),
+                    Container(
+                      margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.36,
+                          left: screenHeight * 0.07),
+                      child: EditImageButton(
+                        onPressed: () {
+                          print('Edit Image Button Pressed!');
+                        },
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-                Center(
-                  child: Container(
-                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.28),
-                    child: EditImageButton(
-                      onPressed: () {
-                        print('Edit Image Button Pressed!');
-                      },
-                    ),
-                  ),
-                ),
-              ],
-            ),
-              SaveButton(
-              onPressed: () {
-                  print('Tombol Simpan Ditekan');
-              },
-            ),
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

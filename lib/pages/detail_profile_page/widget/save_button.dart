@@ -11,8 +11,8 @@ class SaveButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: ColorResources.gold, // Warna latar belakang tombol
-        minimumSize: Size(437, 61), // Tentukan lebar dan tinggi minimum
+        backgroundColor: ColorResources.gold, 
+        minimumSize: Size(437, 61), 
       ),
       child: Text(
         'Simpan',

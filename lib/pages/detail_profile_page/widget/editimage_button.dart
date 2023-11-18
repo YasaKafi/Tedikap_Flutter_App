@@ -9,13 +9,14 @@ class EditImageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-  onPressed: () {},
-  child: Icon(Icons.edit, color: Colors.white),
-  style: ElevatedButton.styleFrom(
-    shape: CircleBorder(),
-    padding: EdgeInsets.all(10),
-    backgroundColor: ColorResources.grey, // <-- Button color
-  ),
-); 
+      
+      onPressed: () {},
+      child: Icon(Icons.edit, color: ColorResources.black),
+      style: ElevatedButton.styleFrom(
+        shape: CircleBorder(),
+        padding: EdgeInsets.all(10),
+        backgroundColor: ColorResources.white,
+      ),
+    );
   }
 }

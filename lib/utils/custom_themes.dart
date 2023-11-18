@@ -320,6 +320,14 @@ TextStyle promoTextStyle({required final double fontSize, required final fontWei
           fontSize: figmaFontsize(fontSize)));
 }
 
+TextStyle profileTextStyle({required final color, required final fontSize, required final fontWeight}) {
+  return GoogleFonts.montserrat(
+      textStyle: TextStyle(
+          color: color,
+          fontWeight: fontWeight,
+          fontSize: figmaFontsize(fontSize)));
+}
+
 TextStyle appBarText = GoogleFonts.rubik(
     textStyle: TextStyle(
         color: primaryTextColor,
