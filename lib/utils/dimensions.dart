@@ -16,6 +16,7 @@ class Dimensions {
   static const double paddingSizeDefaultAddress = 17.0;
   static const double paddingSizeProfilePage = 18.0;
   static const double paddingSizeLarge = 20.0;
+  static const double paddingSizeTwentyThree = 23.0;
   static const double paddingSizeExtraLarge = 25.0;
   static const double paddingSizeThirtyFive = 35.0;
   static const double paddingSizeOverLarge = 50.0;
