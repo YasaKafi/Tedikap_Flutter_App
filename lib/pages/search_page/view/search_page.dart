@@ -25,7 +25,7 @@ class SearchPage extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return DefaultTabController(
-      length: 4, // Jumlah tab
+      length: 4, 
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
