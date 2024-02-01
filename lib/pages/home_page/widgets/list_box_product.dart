@@ -25,7 +25,7 @@ class ListBoxProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: Dimensions.marginSizeLarge, top: Dimensions.marginSizeSmall, bottom: Dimensions.marginSizeSmall),
-      width: 150,
+      width: 160,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black, width: 0.1),
         shape: BoxShape.rectangle,

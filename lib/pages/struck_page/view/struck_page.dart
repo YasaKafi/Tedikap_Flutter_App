@@ -154,7 +154,7 @@ class StruckPage extends StatelessWidget {
                         Align(
                             alignment: Alignment.topLeft,
                             child: Container(
-                                height: screenHeight * 0.2,
+                                height: screenHeight * 0.1,
                                 width: screenWidth,
                                 child: ListView.builder(
                                   itemCount: cartController.cartItems.length,
@@ -247,7 +247,7 @@ class StruckPage extends StatelessWidget {
                         ),
                         TextReceiptOrder(
                           textL: 'Schedule Pick Up',
-                          textR: '05.15 PM',
+                          textR: controller.pickUpTime.value,
                           styleL: strukPageStyle(
                               color: primaryColor,
                               weight: FontWeight.w500,

@@ -53,7 +53,9 @@ class HomePage extends GetView<HomeController> {
                         screenWidth: screenWidth,
                         carouselImageStrings: carouselImageStrings),
                     Container(
-                      padding: EdgeInsets.only(left: Dimensions.paddingSizeLarge, right: Dimensions.paddingSizeLarge),
+                      padding: EdgeInsets.only(
+                          left: Dimensions.paddingSizeLarge,
+                          right: Dimensions.paddingSizeLarge),
                       width: screenWidth,
                       margin: EdgeInsets.only(
                         top: Dimensions.marginSizeSmall,
@@ -137,7 +139,8 @@ class HomePage extends GetView<HomeController> {
                               child: Text(
                                 'Menu Terlaris',
                                 style: promoTextStyle(
-                                    fontSize: Dimensions.fontSizeExtraLarge, fontWeight: FontWeight.w700),
+                                    fontSize: Dimensions.fontSizeExtraLarge,
+                                    fontWeight: FontWeight.w700),
                               ),
                             ),
                             Container(

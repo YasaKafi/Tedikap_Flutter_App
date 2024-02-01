@@ -59,24 +59,7 @@ class BottomSheetPayment extends StatelessWidget {
                             weight: FontWeight.w600,
                             fontSize: Dimensions.fontSizeExtraLarge),
                       ),
-                      Obx(() {
-                        return PaymentBox(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          image: Images.qris,
-                          payment: 'Qris',
-                          balance: 'Click for the code',
-                          textStyle: cartPageStyle(
-                              color: Colors.blue,
-                              weight: FontWeight.w600,
-                              fontSize: Dimensions.fontSizeDefault),
-                          scale: 1.5,
-                          isSelected: controller.selectedPayment.value == 0,
-                          onChanged: (bool? value) {
-                            controller.setSelectedPayment(0, 'Qris');
-                          },
-                        );
-                      }),
+                      
                       Obx(() {
                         return PaymentBox(
                           screenWidth: screenWidth,

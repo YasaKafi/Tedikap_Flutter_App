@@ -29,7 +29,7 @@ class HeaderHomeWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: EdgeInsets.only(left: Dimensions.paddingSizeThirty, top: Dimensions.paddingSizeLarger),
+            padding: EdgeInsets.only(left: Dimensions.paddingSizeThirty, top: Dimensions.paddingSizeOverLarge),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -42,7 +42,7 @@ class HeaderHomeWidget extends StatelessWidget {
                 ),
                 
                 Text(
-                    'Sayang',
+                    'Yasa Kafi',
                     style: homePageStyle(
                       color: ColorResources.white,
                       weight: FontWeight.w500,
