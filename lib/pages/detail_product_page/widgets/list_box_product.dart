@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 
 class ListBoxProduct extends StatelessWidget {
   ListBoxProduct({
@@ -24,7 +25,7 @@ class ListBoxProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+        margin: EdgeInsets.only(left: Dimensions.marginSizeLarge, right: Dimensions.marginSizeLarge, top: Dimensions.marginSizeLarge),
         height: screenHeight * 0.09,
         width: screenWidth,
         child: Row(
@@ -34,7 +35,7 @@ class ListBoxProduct extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
-                    margin: EdgeInsets.only(left: 10),
+                    margin: EdgeInsets.only(left: Dimensions.marginSizeSmall),
                     width: 70,
                     height: 70,
                     decoration: ShapeDecoration(
@@ -49,7 +50,7 @@ class ListBoxProduct extends StatelessWidget {
                 ),
                 Positioned(
                   bottom: 0,
-                  left: 20,
+                  left: Dimensions.marginSizeLarge,
                   right: 0,
                   child: Container(
                     width: 50,
@@ -67,13 +68,13 @@ class ListBoxProduct extends StatelessWidget {
                         Icon(
                           Icons.star_rate_rounded,
                           color: Colors.orange,
-                          size: 20,
+                          size: Dimensions.iconSizeKindDeafult,
                         ),
                         Text(
                           rating.toString(),
                           style: detailPageStyle(
                               color: primaryColor,
-                              fontSize: 12,
+                              fontSize: Dimensions.fontSizeSmall,
                               weight: FontWeight.bold),
                         ),
                       ],
@@ -83,7 +84,7 @@ class ListBoxProduct extends StatelessWidget {
               ],
             ),
             SizedBox(
-              width: 20,
+              width: Dimensions.marginSizeLarge,
             ),
             Container(
               width: screenWidth * 0.45,
@@ -96,16 +97,16 @@ class ListBoxProduct extends StatelessWidget {
                     style: searchPageStyle(
                         color: primaryColor,
                         weight: FontWeight.w500,
-                        fontSize: 16),
+                        fontSize: Dimensions.fontSizeLarge),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: Dimensions.marginSizeExtraSmall,
                   ),
                   Text(category,
                       style: searchPageStyle(
                           color: primaryColor,
                           weight: FontWeight.w400,
-                          fontSize: 14)),
+                          fontSize: Dimensions.fontSizeDefault)),
                 ],
               ),
             ),
@@ -118,7 +119,7 @@ class ListBoxProduct extends StatelessWidget {
                         style: searchPageStyle(
                             color: primaryColor,
                             weight: FontWeight.w500,
-                            fontSize: 14),
+                            fontSize: Dimensions.fontSizeDefault),
                       ),
                     )))
           ],

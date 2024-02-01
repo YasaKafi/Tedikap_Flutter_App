@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 
 class CompositionDrink extends StatelessWidget {
   const CompositionDrink({
@@ -65,17 +66,17 @@ class CompositionDrink extends StatelessWidget {
                   Icon(
                     Icons.fireplace_rounded,
                     color: ColorResources.red,
-                    size: 20,
+                    size: Dimensions.iconSizeKindDeafult,
                   ),
                   SizedBox(
-                    width: 5,
+                    width: Dimensions.marginSizeExtraSmall,
                   ),
                   Text(
                     "Hot",
                     style: detailPageStyle(
                         color: ColorResources.red,
                         weight: FontWeight.w600,
-                        fontSize: 14),
+                        fontSize: Dimensions.fontSizeDefault),
                   )
                 ],
               ),
@@ -89,7 +90,7 @@ class CompositionDrink extends StatelessWidget {
                   Icon(
                     Icons.ac_unit,
                     color: ColorResources.greyBold,
-                    size: 20,
+                    size: Dimensions.iconSizeKindDeafult,
                   ),
                   SizedBox(
                     width: 5,
@@ -99,7 +100,7 @@ class CompositionDrink extends StatelessWidget {
                     style: detailPageStyle(
                         color: ColorResources.grey,
                         weight: FontWeight.w600,
-                        fontSize: 14),
+                        fontSize: Dimensions.fontSizeDefault),
                   )
                 ],
               ),

@@ -7,6 +7,7 @@ import 'package:tedikap_flutter_app/data/models/product_response_model.dart';
 import 'package:tedikap_flutter_app/pages/detail_product_page/controller/detail_controller.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 
 class IncrementPrice extends StatelessWidget {
   const IncrementPrice({
@@ -35,11 +36,11 @@ class IncrementPrice extends StatelessWidget {
               "Rp.",
               style: detailPageStyle(
                   color: ColorResources.greyBold,
-                  fontSize: 16,
+                  fontSize: Dimensions.fontSizeLarge,
                   weight: FontWeight.w400),
             ),
             SizedBox(
-              height: 10,
+              height: Dimensions.marginSizeSmall,
             ),
             Obx(() {
               final totalPriceItem =
@@ -49,7 +50,7 @@ class IncrementPrice extends StatelessWidget {
                 totalPriceItem.toString(),
                 style: detailPageStyle(
                   color: primaryColor,
-                  fontSize: 24,
+                  fontSize: Dimensions.fontSizeExtra2Large,
                   weight: FontWeight.bold,
                 ),
               );
@@ -105,7 +106,7 @@ class IncrementPrice extends StatelessWidget {
                 icon: Icon(
                   Icons.remove,
                   color: ColorResources.greyBold,
-                  size: 20,
+                  size: Dimensions.iconSizeKindDeafult,
                 ),
                 onPressed: () => detailProductController.decrementQuantity(),
               )),
@@ -116,7 +117,7 @@ class IncrementPrice extends StatelessWidget {
                   detailProductController.quantity.value.toString(),
                   style: detailPageStyle(
                       color: primaryColor,
-                      fontSize: 16,
+                      fontSize: Dimensions.fontSizeLarge,
                       weight: FontWeight.bold),
                 ),
               );
@@ -154,7 +155,7 @@ class IncrementPrice extends StatelessWidget {
                       icon: Icon(
                         Icons.add,
                         color: ColorResources.greyBold,
-                        size: 20,
+                        size: Dimensions.iconSizeKindDeafult,
                       ),
                       onPressed: () =>
                           detailProductController.incrementQuantity())),

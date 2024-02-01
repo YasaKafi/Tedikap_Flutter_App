@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tedikap_flutter_app/pages/home_page/controller/home_controller.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 
 class CarouselSliderWidget extends StatelessWidget {
    CarouselSliderWidget({
@@ -21,7 +22,7 @@ class CarouselSliderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 60),
+      margin: EdgeInsets.only(top: Dimensions.paddingSizeLarger),
       width: screenWidth,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -29,7 +30,7 @@ class CarouselSliderWidget extends StatelessWidget {
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 20, right: 20),
+            padding: EdgeInsets.only(left: Dimensions.paddingSizeLarge, right: Dimensions.paddingSizeLarge),
             child: Align(
               alignment: Alignment.center,
               child: CarouselSlider(
@@ -78,7 +79,7 @@ class CarouselSliderWidget extends StatelessWidget {
                     width: 8.0,
                     height: 8.0,
                     margin: EdgeInsets.symmetric(
-                        vertical: 10.0, horizontal: 2.0),
+                        vertical: Dimensions.fontSizeExtraSmall, horizontal: 2.0),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: controller.currentIndex == index

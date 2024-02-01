@@ -36,24 +36,34 @@ class HistoryPage extends StatelessWidget {
                 Container(
                   width: screenWidth,
                   height: screenHeight,
-                  child: ListView.builder(
-                    itemCount: controller.historyItems.length,
-                    itemBuilder: (context, index) {
-                      final historyItems = controller.historyItems[index];
-                      List<String> titles = [];
-                      for (var cartItem in controller.historyItems) {
-                        titles.add(cartItem.title);
-                      }
-                      return BoxHistory(
-                        screenWidth: screenWidth,
-                        screenHeight: screenHeight,
-                        date: historyItems.date,
-                        time: historyItems.time,
-                        priceTotal: historyItems.price,
-                        titles: titles,
-                      );
-                    },
-                  ),
+                  child:  controller.historyItems.isEmpty
+                      ? Center(
+                          child: Text(
+                            'Anda belum pernah memesan produk',
+                            style: historyPageStyle(
+                      color: primaryColor,
+                      weight: FontWeight.w600,
+                      fontSize: 14),
+                          ),
+                        )
+                      : ListView.builder(
+                          itemCount: controller.historyItems.length,
+                          itemBuilder: (context, index) {
+                            final historyItems = controller.historyItems[index];
+                            List<String> titles = [];
+                            for (var cartItem in controller.historyItems) {
+                              titles.add(cartItem.title);
+                            }
+                            return BoxHistory(
+                              screenWidth: screenWidth,
+                              screenHeight: screenHeight,
+                              date: historyItems.date,
+                              time: historyItems.time,
+                              priceTotal: historyItems.price,
+                              titles: titles,
+                            );
+                          },
+                        ),
                 )
               ],
             ),

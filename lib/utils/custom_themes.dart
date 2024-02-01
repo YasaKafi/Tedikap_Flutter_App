@@ -20,7 +20,7 @@ const Color offButtonColor = Color.fromRGBO(203, 203, 203, 1);
 const Color warningColor = Color.fromRGBO(143, 42, 42, 1);
 const Color borderColor = Color.fromRGBO(138, 136, 136, 1);
 
-figmaFontsize(int fontSize) {
+figmaFontsize(double fontSize) {
   return fontSize * 0.95;
 }
 
@@ -207,7 +207,7 @@ TextStyle detailButtonsText({required bool isDelete}) {
   ));
 }
 
-TextStyle amountTextStyle({required int fontSize}) {
+TextStyle amountTextStyle({required double fontSize}) {
   return GoogleFonts.montserrat(
       textStyle: TextStyle(
     color: primaryColor,
@@ -227,7 +227,7 @@ TextStyle buttonStyle({required final color}) {
 TextStyle detailPageStyle({
   required final color,
   required final weight,
-  required final fontSize,
+  required final double fontSize,
 }) {
   return GoogleFonts.sora(
       textStyle: TextStyle(
@@ -237,7 +237,7 @@ TextStyle detailPageStyle({
 TextStyle cartPageStyle({
   required final color,
   required final weight,
-  required final fontSize,
+  required final  double fontSize,
 }) {
   return GoogleFonts.sora(
       textStyle: TextStyle(
@@ -250,7 +250,7 @@ TextStyle cartPageStyle({
 TextStyle strukPageStyle({
   required final color,
   required final weight,
-  required final fontSize,
+  required final  double fontSize,
 }) {
   return GoogleFonts.sora(
       textStyle: TextStyle(
@@ -260,10 +260,23 @@ TextStyle strukPageStyle({
   ));
 }
 
+TextStyle profileTextStyle({
+  required final color,
+  required final fontWeight,
+  required final  double fontSize,
+}) {
+  return GoogleFonts.sora(
+      textStyle: TextStyle(
+    color: color,
+    fontWeight: fontWeight,
+    fontSize: figmaFontsize(fontSize),
+  ));
+}
+
 TextStyle searchPageStyle({
   required final color,
   required final weight,
-  required final fontSize,
+  required final  double fontSize,
 }) {
   return GoogleFonts.sora(
       textStyle: TextStyle(
@@ -276,7 +289,7 @@ TextStyle searchPageStyle({
 TextStyle homePageStyle({
   required final color,
   required final weight,
-  required final fontSize,
+  required final double fontSize,
 }) {
   return GoogleFonts.sora(
       textStyle: TextStyle(
@@ -289,7 +302,7 @@ TextStyle homePageStyle({
 TextStyle historyPageStyle({
   required final color,
   required final weight,
-  required final fontSize,
+  required final double fontSize,
 }) {
   return GoogleFonts.sora(
       textStyle: TextStyle(
@@ -299,7 +312,7 @@ TextStyle historyPageStyle({
   ));
 }
 
-TextStyle promoTextStyle({required final fontSize, required final fontWeight}) {
+TextStyle promoTextStyle({required final double fontSize, required final fontWeight}) {
   return GoogleFonts.montserrat(
       textStyle: TextStyle(
           color: primaryColor,
@@ -307,16 +320,11 @@ TextStyle promoTextStyle({required final fontSize, required final fontWeight}) {
           fontSize: figmaFontsize(fontSize)));
 }
 
-TextStyle profileTextStyle({required final color, required final fontSize, required final fontWeight}) {
-  return GoogleFonts.montserrat(
-      textStyle: TextStyle(
-          color: color,
-          fontWeight: fontWeight,
-          fontSize: figmaFontsize(fontSize)));
-}
+
 
 TextStyle appBarText = GoogleFonts.rubik(
     textStyle: TextStyle(
         color: primaryTextColor,
         fontWeight: FontWeight.w600,
         fontSize: figmaFontsize(18)));
+

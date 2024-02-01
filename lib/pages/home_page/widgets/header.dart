@@ -4,6 +4,7 @@ import 'package:tedikap_flutter_app/pages/register_page/controller/register_cont
 import 'package:tedikap_flutter_app/routes/AppPages.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 
 class HeaderHomeWidget extends StatelessWidget {
   HeaderHomeWidget({
@@ -28,7 +29,7 @@ class HeaderHomeWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 30, top: 50),
+            padding: EdgeInsets.only(left: Dimensions.paddingSizeThirty, top: Dimensions.paddingSizeOverLarge),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -37,17 +38,15 @@ class HeaderHomeWidget extends StatelessWidget {
                   style: homePageStyle(
                       color: ColorResources.white,
                       weight: FontWeight.w500,
-                      fontSize: 12),
+                      fontSize: Dimensions.fontSizeSmall),
                 ),
-                SizedBox(
-                  height: 5,
-                ),
+                
                 Text(
-                    registerController.usernameController.text,
+                    'Yasa Kafi',
                     style: homePageStyle(
                       color: ColorResources.white,
-                      weight: FontWeight.w700,
-                      fontSize: 18,
+                      weight: FontWeight.w500,
+                      fontSize: Dimensions.fontSizeExtraLarge,
                     ),
                   ),
                 
@@ -57,7 +56,7 @@ class HeaderHomeWidget extends StatelessWidget {
           Align(
             alignment: Alignment.topRight,
             child: Container(
-              margin: EdgeInsets.only(right: 30, top: 50),
+              margin: EdgeInsets.only(right: Dimensions.marginSizeSuperLarge, top: Dimensions.marginSizeExtraLargeX2),
               width: 40,
               height: 40,
               decoration: BoxDecoration(

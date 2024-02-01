@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 
 class SizeDrink extends StatelessWidget {
   const SizeDrink({
@@ -40,7 +41,7 @@ class SizeDrink extends StatelessWidget {
                   style: detailPageStyle(
                       color: ColorResources.greyBold,
                       weight: FontWeight.w600,
-                      fontSize: 14),
+                      fontSize: Dimensions.fontSizeDefault),
                 ),
               ),
             ),
@@ -78,7 +79,7 @@ class SizeDrink extends StatelessWidget {
                   style: detailPageStyle(
                       color: Colors.blueAccent,
                       weight: FontWeight.w600,
-                      fontSize: 14),
+                      fontSize: Dimensions.fontSizeDefault),
                 ),
               ),
             ),
@@ -91,7 +92,7 @@ class SizeDrink extends StatelessWidget {
                   style: detailPageStyle(
                       color: ColorResources.greyBold,
                       weight: FontWeight.w600,
-                      fontSize: 14),
+                      fontSize: Dimensions.fontSizeDefault),
                 ),
               ),
             ),
@@ -104,7 +105,7 @@ class SizeDrink extends StatelessWidget {
                   style: detailPageStyle(
                       color: ColorResources.greyBold,
                       weight: FontWeight.w600,
-                      fontSize: 14),
+                      fontSize: Dimensions.fontSizeDefault),
                 ),
               ),
             ),

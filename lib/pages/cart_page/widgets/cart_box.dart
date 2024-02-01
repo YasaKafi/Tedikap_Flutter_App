@@ -16,6 +16,7 @@ class CartBox extends StatelessWidget {
   final Function()? onTap;
   final CartItem item;
 
+
   CartBox({
     Key? key,
     required this.screenHeight,
@@ -35,8 +36,7 @@ class CartBox extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
       ),
-      child: controller.teaSeries.isNotEmpty // Pengecekan daftar tidak kosong
-          ? Row(
+      child: Row(
               children: [
                 Container(
                   margin: EdgeInsets.only(left: 20),
@@ -110,10 +110,7 @@ class CartBox extends StatelessWidget {
                 ),
               ],
             )
-          : Container(
-              // Konten untuk kasus ketika daftar kosong
-              child: Text('Daftar kosong'),
-            ),
+          
     );
   }
 }

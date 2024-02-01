@@ -20,7 +20,6 @@ class ApiController extends GetxController {
     getMilkSeries();
     getNonTeaSeries();
   }
-  
 
   Future<void> getTeaSeries() async {
     try {
@@ -87,7 +86,7 @@ class ApiController extends GetxController {
       isLoading.value = false;
     }
   }
-  
+
   Future<void> getMilkSeries() async {
     try {
       isLoading.value = true;
@@ -109,7 +108,36 @@ class ApiController extends GetxController {
       isLoading.value = false;
     }
   }
-  
 
-  
+  List<Product> searchAllData(String query) {
+    List<Product> results = [];
+
+    // Melakukan pencarian pada teaSeries
+    results.addAll(_searchInList(teaSeries, query));
+
+    // Melakukan pencarian pada nonTeaSeries
+    results.addAll(_searchInList(nonTeaSeries, query));
+
+    // Melakukan pencarian pada milkSeries
+    results.addAll(_searchInList(milkSeries, query));
+
+    // Melakukan pencarian pada snacksSeries
+    results.addAll(_searchInList(snacksSeries, query));
+
+    return results;
+  }
+
+  // Fungsi internal untuk pencarian di dalam satu list
+  List<Product> _searchInList(RxList<Product> productList, String query) {
+    List<Product> results = [];
+
+    for (Product product in productList) {
+      // Melakukan pencocokan dengan nama produk (bisa disesuaikan dengan properti lain jika perlu)
+      if (product.name!.toLowerCase().contains(query.toLowerCase())) {
+        results.add(product);
+      }
+    }
+
+    return results;
+  }
 }

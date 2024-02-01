@@ -154,11 +154,12 @@ class StruckPage extends StatelessWidget {
                         Align(
                             alignment: Alignment.topLeft,
                             child: Container(
-                                height: screenHeight * 0.2,
+                                height: screenHeight * 0.1,
                                 width: screenWidth,
                                 child: ListView.builder(
                                   itemCount: cartController.cartItems.length,
                                   itemBuilder: (context, index) {
+                                    print(cartController.cartItems.length);
                                     final cartItem =
                                         cartController.cartItems[index];
                                     return ProductOrder(
@@ -166,8 +167,7 @@ class StruckPage extends StatelessWidget {
                                       quantity: cartItem.quantity,
                                     );
                                   },
-                                ))
-                                ),
+                                ))),
                         SizedBox(
                           height: 10,
                         ),
@@ -247,7 +247,7 @@ class StruckPage extends StatelessWidget {
                         ),
                         TextReceiptOrder(
                           textL: 'Schedule Pick Up',
-                          textR: '05.15 PM',
+                          textR: controller.pickUpTime.value,
                           styleL: strukPageStyle(
                               color: primaryColor,
                               weight: FontWeight.w500,
@@ -272,7 +272,7 @@ class StruckPage extends StatelessWidget {
                         allCartItems,
                         controller.currentTime.value,
                         controller.currentDate.value);
-                        cartController.cartItems.clear();
+                    cartController.cartItems.clear();
                     Get.offNamed(Routes.BOTTOM_NAVBAR);
                   },
                   child: Container(

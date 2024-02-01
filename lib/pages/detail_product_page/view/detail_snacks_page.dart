@@ -15,6 +15,7 @@ import 'package:tedikap_flutter_app/pages/home_page/controller/home_controller.d
 import 'package:tedikap_flutter_app/routes/AppPages.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
+import 'package:tedikap_flutter_app/utils/dimensions.dart';
 
 class DetailSnack extends StatelessWidget {
   DetailSnack({Key? key}) : super(key: key);
@@ -53,113 +54,113 @@ class DetailSnack extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: AspectRatio(
-                aspectRatio: 2,
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: ColorResources.grey,
-                        blurRadius: 25,
+                padding: const EdgeInsets.only(top: Dimensions.paddingSizeSmall),
+                child: AspectRatio(
+                  aspectRatio: 2,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: ColorResources.grey,
+                          blurRadius: 25,
+                        ),
+                      ],
+                      image: DecorationImage(
+                        image: NetworkImage(snackSeries.imageUrl ?? ""),
+                        fit: BoxFit.contain,
                       ),
-                    ],
-                    image: DecorationImage(
-                      image: NetworkImage(snackSeries.imageUrl ?? ""),
-                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 50, left: 40, right: 40),
-              height: screenHeight * 0.35,
-              width: screenWidth,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    snackSeries.name ?? "",
-                    style: detailPageStyle(
-                        color: primaryColor,
-                        fontSize: 22,
-                        weight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    snackSeries.category ?? "",
-                    style: detailPageStyle(
-                        color: primaryColor,
-                        fontSize: 14,
-                        weight: FontWeight.w400),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.star_rate_rounded,
-                        color: Colors.orange,
-                        size: 25,
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        snackSeries.rating.toString() ?? "0",
-                        style: detailPageStyle(
-                            color: primaryColor,
-                            fontSize: 16,
-                            weight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        '(230)',
-                        style: detailPageStyle(
-                            color: ColorResources.greyBold,
-                            fontSize: 14,
-                            weight: FontWeight.w400),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Divider(
-                    thickness: 1,
-                    color: ColorResources.grey,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    "Description",
-                    style: detailPageStyle(
-                        color: primaryColor,
-                        fontSize: 22,
-                        weight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    snackSeries.description ?? "",
-                    style: detailPageStyle(
-                        color: primaryColor,
-                        fontSize: 14,
-                        weight: FontWeight.w400),
-                  ),
-                ],
+              Container(
+                margin: EdgeInsets.only(top: Dimensions.marginSizeExtraLargeX2, left: Dimensions.marginSizeOnboardLarge, right: Dimensions.marginSizeOnboardLarge),
+                height: screenHeight * 0.35,
+                width: screenWidth,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      snackSeries.name ?? "",
+                      style: detailPageStyle(
+                          color: primaryColor,
+                          fontSize: 22,
+                          weight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: Dimensions.marginSizeSmall,
+                    ),
+                    Text(
+                      snackSeries.category ?? "",
+                      style: detailPageStyle(
+                          color: primaryColor,
+                          fontSize: Dimensions.fontSizeDefault,
+                          weight: FontWeight.w400),
+                    ),
+                    SizedBox(
+                      height: Dimensions.marginSizeLarge,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.star_rate_rounded,
+                          color: Colors.orange,
+                          size: Dimensions.iconSizeDefault,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          snackSeries.rating.toString() ?? "0",
+                          style: detailPageStyle(
+                              color: primaryColor,
+                              fontSize: Dimensions.fontSizeLarge,
+                              weight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          '(230)',
+                          style: detailPageStyle(
+                              color: ColorResources.greyBold,
+                              fontSize: Dimensions.fontSizeDefault,
+                              weight: FontWeight.w400),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: Dimensions.marginSizeLarge,
+                    ),
+                    Divider(
+                      thickness: 1,
+                      color: ColorResources.grey,
+                    ),
+                    SizedBox(
+                      height: Dimensions.marginSizeLarge,
+                    ),
+                    Text(
+                      "Description",
+                      style: detailPageStyle(
+                          color: primaryColor,
+                          fontSize: Dimensions.fontSizeHomeName,
+                          weight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: Dimensions.marginSizeSmall,
+                    ),
+                    Text(
+                      snackSeries.description ?? "",
+                      style: detailPageStyle(
+                          color: primaryColor,
+                          fontSize: Dimensions.fontSizeDefault,
+                          weight: FontWeight.w400),
+                    ),
+                  ],
+                ),
               ),
-            ),
             Container(
               width: screenWidth,
               height: screenHeight * 0.15,
@@ -169,8 +170,6 @@ class DetailSnack extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   IncrementPrice(detailProductController: detailProductController, teaSeries: snackSeries, screenWidth: screenWidth, screenHeight: screenHeight),
-                  
-                  
                   Align(
                     alignment: Alignment.bottomCenter,
                     
