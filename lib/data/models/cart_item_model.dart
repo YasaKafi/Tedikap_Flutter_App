@@ -1,5 +1,4 @@
 class CartItem {
-
   final String title;
   final String image;
   final int price;
@@ -7,8 +6,7 @@ class CartItem {
   int quantity;
   int totalItemPrice;
 
-  CartItem(
-     {
+  CartItem({
     required this.title,
     required this.image,
     required this.price,
@@ -17,5 +15,27 @@ class CartItem {
     required this.totalItemPrice,
   });
 
-  
+  // Convert a Map to a CartItem
+  factory CartItem.fromMap(Map<String, dynamic> map) {
+    return CartItem(
+      id: map['id'],
+      title: map['title'],
+      image: map['image'],
+      price: map['price'],
+      quantity: map['quantity'],
+      totalItemPrice: map['totalItemPrice'],
+    );
+  }
+
+  // Convert a CartItem to a Map
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'image': image,
+      'price': price,
+      'quantity': quantity,
+      'totalItemPrice': totalItemPrice,
+    };
+  }
 }

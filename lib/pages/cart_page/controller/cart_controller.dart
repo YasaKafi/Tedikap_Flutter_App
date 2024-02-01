@@ -6,7 +6,16 @@ import 'package:tedikap_flutter_app/data/models/product_response_model.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
 import 'package:tedikap_flutter_app/utils/custom_themes.dart';
 
+import '../../../data/datasource/cart_database_local.dart';
+
 class CartController extends GetxController {
+
+  @override
+void onInit() async {
+  super.onInit();
+  await getCartItemsFromDatabase(); // Tambahkan baris ini untuk mengambil data dari database saat inisialisasi
+}
+
   var cartItems = <CartItem>[].obs;
   RxInt selectedPayment = 0.obs;
   RxString selectedPaymentName = ''.obs;
@@ -15,6 +24,12 @@ class CartController extends GetxController {
     selectedPayment.value = index;
     selectedPaymentName.value = paymentName;
   }
+
+  Future<void> getCartItemsFromDatabase() async {
+  final cartRepository = CartRepository();
+  final cartItems = await cartRepository.getCartItems();
+  this.cartItems.value = cartItems;
+}
   
   int getTotalPrice() {
     int totalPrice = 0;
@@ -24,9 +39,11 @@ class CartController extends GetxController {
     return totalPrice;
   }
 
-  void addToCart(CartItem item) {
-    cartItems.add(item);
-  }
+  void addToCart(CartItem item) async {
+  final cartRepository = CartRepository();
+  await cartRepository.addCartItem(item);
+  cartItems.add(item);
+}
 
   void removeItem(int index) {
     if (index >= 0 && index < cartItems.length) {

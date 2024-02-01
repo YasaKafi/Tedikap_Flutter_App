@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tedikap_flutter_app/pages/cart_page/controller/cart_controller.dart';
 import 'package:tedikap_flutter_app/pages/history_page/view/history_page.dart';
 import 'package:tedikap_flutter_app/pages/navigator_page/controller/navbar_controller.dart';
 import 'package:tedikap_flutter_app/utils/color_resources.dart';
@@ -13,6 +14,7 @@ import '../../search_page/view/search_page.dart';
 class BottomNavBar extends StatelessWidget {
   final BottomNavigationController controller =
       Get.put(BottomNavigationController());
+      final CartController cartController = Get.put(CartController());
 
   final List<Widget> pages = [
     HomePage(),
