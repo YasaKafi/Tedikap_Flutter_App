@@ -15,7 +15,6 @@ class CartItem {
     required this.totalItemPrice,
   });
 
-  // Convert a Map to a CartItem
   factory CartItem.fromMap(Map<String, dynamic> map) {
     return CartItem(
       id: map['id'],
@@ -27,7 +26,6 @@ class CartItem {
     );
   }
 
-  // Convert a CartItem to a Map
   Map<String, dynamic> toMap() {
     return {
       'id': id,

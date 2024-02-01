@@ -45,11 +45,11 @@ void onInit() async {
   cartItems.add(item);
 }
 
-  void removeItem(int index) {
-    if (index >= 0 && index < cartItems.length) {
-      cartItems.removeAt(index);
-    }
-  }
+  Future<void> removeItemFromDatabase(int index) async {
+  final cartRepository = CartRepository();
+  await cartRepository.deleteCartItem(cartItems[index].id); // Panggil metode deleteCartItem dari CartRepository
+  cartItems.removeAt(index);
+}
 
   Future<bool?> showDeleteConfirmationDialog(BuildContext context) async {
     return await Get.defaultDialog(

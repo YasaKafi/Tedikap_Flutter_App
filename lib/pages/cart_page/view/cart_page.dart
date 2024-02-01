@@ -223,7 +223,7 @@ class CartPage extends StatelessWidget {
                                     child: Icon(Icons.restore_from_trash),
                                   ),
                                   onDismissed: (direction) {
-                                    cartController.removeItem(index);
+                                    cartController.removeItemFromDatabase(index);
                                   },
                                   key: ValueKey(
                                       cartController.cartItems[index].id),

@@ -30,4 +30,9 @@ class CartRepository {
     final db = await database;
     await db.insert('cart', cartItem.toMap());
   }
+
+  Future<void> deleteCartItem(int id) async {
+  final db = await database;
+  await db.delete('cart', where: 'id = ?', whereArgs: [id]);
+}
 }
